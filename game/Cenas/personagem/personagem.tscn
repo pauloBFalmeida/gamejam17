@@ -17,7 +17,9 @@ script = ExtResource("1_en5i7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = SubResource("SphereShape3D_smq05")
 
-[node name="Sprite3DSombra" type="Sprite3D" parent="." unique_id=86068067]
+[node name="ImgPivotSombra" type="Node3D" parent="." unique_id=1817852155]
+
+[node name="Sprite3DSombra" type="Sprite3D" parent="ImgPivotSombra" unique_id=86068067]
 transform = Transform3D(0.035, 0, 0, 0, -1.5298985e-09, -0.035, 0, 0.035, -1.5298985e-09, 0, 0.005888745, 0)
 texture = ExtResource("3_upg41")
 
@@ -33,9 +35,10 @@ texture = ExtResource("2_bkstj")
 debug_use_custom = true
 debug_path_custom_color = Color(0.3529412, 1, 0.14509805, 1)
 
-[node name="Movimentacao" type="Node" parent="." unique_id=582851084 node_paths=PackedStringArray("img_pivot", "sprite_3d", "navigation_agent_3d", "personagem")]
+[node name="Movimentacao" type="Node" parent="." unique_id=582851084 node_paths=PackedStringArray("img_pivot", "sombra_pivot", "sprite_3d", "navigation_agent_3d", "personagem")]
 script = ExtResource("3_bkstj")
 img_pivot = NodePath("../ImgPivot")
+sombra_pivot = NodePath("../ImgPivotSombra")
 sprite_3d = NodePath("../ImgPivot/Sprite3D")
 navigation_agent_3d = NodePath("../NavigationAgent3D")
 personagem = NodePath("..")

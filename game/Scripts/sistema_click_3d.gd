@@ -21,7 +21,6 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			click()
-			print("CLICK")
 
 var sphere : CSGSphere3D
 
@@ -38,6 +37,7 @@ func click() -> void:
 	
 	if sphere: sphere.free()
 	sphere = CSGSphere3D.new()
+	sphere.radius = 0.1
 	add_child(sphere)
 	sphere.global_position = posicao_3d_click
 

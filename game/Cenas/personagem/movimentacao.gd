@@ -8,20 +8,24 @@ class_name MovimentacaoPersonagem
 @export var pulinho_altura := 0.08
 @export var pulinho_freq := 0.3
 
+@export var pulinho_sombra_min_scale := 0.45
 
 const min_x_direcao := 0.6
 const rotacao_duracao := 1.2 ## em seg
 
 @export var img_pivot: Node3D
+@export var sombra_pivot: Node3D
 @export var sprite_3d: Sprite3D
 @export var navigation_agent_3d: NavigationAgent3D
 @export var personagem: CharacterBody3D
 
+var destino : Vector3
+
 var esta_andando : bool = false
-var acc_time := 0.0
 
 var tween_rot : Tween
 var tween_pulinhos : Tween
+var tween_pulinhos_sombra : Tween
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
@@ -33,18 +37,22 @@ func _unhandled_input(event: InputEvent) -> void:
 		random_pos.z = randf_range(-1.2, 1.2)
 		navigation_agent_3d.target_position = random_pos
 		
-		esta_andando = false 
-		acc_time = 0.0
 		
-		var direcao := get_direcao()
-		if direcao.x < -min_x_direcao:
-			rotacionar(true)
-			get_tree().create_timer(rotacao_duracao/2).timeout.connect(_comecar_andar)
-		elif direcao.x > min_x_direcao:
-			rotacionar(false)
-			get_tree().create_timer(rotacao_duracao/2).timeout.connect(_comecar_andar)
-		else:
-			_comecar_andar()
+		andar_para(navigation_agent_3d.get_next_path_position())
+
+func andar_para(global_pos: Vector3) -> void:
+	destino = global_pos
+	esta_andando = false 
+	
+	var direcao := get_direcao()
+	if direcao.x < -min_x_direcao:
+		rotacionar(true)
+		get_tree().create_timer(rotacao_duracao/2).timeout.connect(_comecar_andar)
+	elif direcao.x > min_x_direcao:
+		rotacionar(false)
+		get_tree().create_timer(rotacao_duracao/2).timeout.connect(_comecar_andar)
+	else:
+		_comecar_andar()
 
 func _comecar_andar() -> void:
 	esta_andando = true
@@ -54,9 +62,9 @@ func _parar_andar() -> void:
 	esta_andando = false
 	parar_pulinhos()
 
+
 func get_direcao() -> Vector3:
-	var dest := navigation_agent_3d.get_next_path_position()
-	var local_dest = dest - personagem.global_position
+	var local_dest = destino - personagem.global_position
 	
 	if local_dest.length_squared() < dist_chegar:
 		_parar_andar()
@@ -86,7 +94,9 @@ func rotacionar(horario: bool = false) -> void:
 func comecar_pulinhos() -> void:
 	if tween_pulinhos:
 		tween_pulinhos.stop()
+		tween_pulinhos_sombra.stop()
 	
+	# -- sobe
 	tween_pulinhos = create_tween()
 	tween_pulinhos.set_ease(Tween.EASE_IN_OUT)
 	tween_pulinhos.set_trans(Tween.TRANS_QUAD)
@@ -96,7 +106,19 @@ func comecar_pulinhos() -> void:
 		pulinho_altura,
 		pulinho_freq
 	).from(0.0)
-	#await tween_pulinhos.finished
+	
+	tween_pulinhos_sombra = create_tween()
+	tween_pulinhos_sombra.set_ease(Tween.EASE_IN_OUT)
+	tween_pulinhos_sombra.set_trans(Tween.TRANS_LINEAR)
+	tween_pulinhos_sombra.tween_property(
+		sombra_pivot,
+		"scale",
+		Vector3.ONE * pulinho_sombra_min_scale,
+		pulinho_freq
+	)
+	
+	
+	# -- desce
 	tween_pulinhos.tween_property(
 		img_pivot,
 		"position:y",
@@ -104,10 +126,22 @@ func comecar_pulinhos() -> void:
 		pulinho_freq
 	).from(pulinho_altura)
 	tween_pulinhos.set_loops()
+	
+	tween_pulinhos_sombra.tween_property(
+		sombra_pivot,
+		"scale",
+		Vector3.ONE,
+		pulinho_freq
+	)
+	
+	# -- Loops
+	tween_pulinhos.set_loops()
+	tween_pulinhos_sombra.set_loops()
 
 func parar_pulinhos() -> void:
 	if tween_pulinhos:
 		tween_pulinhos.stop()
+		tween_pulinhos_sombra.stop()
 	
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT)
@@ -119,3 +153,4 @@ func parar_pulinhos() -> void:
 		pulinho_freq
 	).from_current()
 	
+	sombra_pivot.scale = Vector3.ONE
