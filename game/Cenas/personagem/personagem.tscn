@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b38om46bvne5q"]
 
-[ext_resource type="Texture2D" uid="uid://b83hcoeosb0lh" path="res://_debug/temps/personagem.png" id="1_5n1mn"]
 [ext_resource type="Script" uid="uid://ctdyax7wsncdt" path="res://Cenas/personagem/personagem.gd" id="1_en5i7"]
+[ext_resource type="Texture2D" uid="uid://dgeoja7h5ioqj" path="res://Assets/personagens/abandono_neutro.png" id="2_bkstj"]
 [ext_resource type="Script" uid="uid://dl7yimcvs33np" path="res://Cenas/personagem/movimentacao.gd" id="3_bkstj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_smq05"]
@@ -21,10 +21,9 @@ shape = SubResource("SphereShape3D_smq05")
 [node name="Sprite3D" type="Sprite3D" parent="ImgPivot" unique_id=825049917]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-texture = ExtResource("1_5n1mn")
+texture = ExtResource("2_bkstj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=756358307]
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.3529412, 1, 0.14509805, 1)
 

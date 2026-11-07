@@ -2,6 +2,12 @@ extends Node
 class_name MovimentacaoPersonagem
 
 @export var velocidade := 0.8
+## distancia chegar objetivo (squared)
+@export var dist_chegar := 0.02
+
+@export var pulinho_altura := 0.12
+@export var pulinho_freq := 8.0
+
 
 const min_x_direcao := 0.6
 const rotacao_duracao := 1.2 ## em seg
@@ -42,6 +48,10 @@ func _comecar_andar() -> void:
 func get_direcao() -> Vector3:
 	var dest := navigation_agent_3d.get_next_path_position()
 	var local_dest = dest - personagem.global_position
+	
+	if local_dest.length_squared() < dist_chegar:
+		esta_andando = false
+	
 	var direction = local_dest.normalized()
 	return direction
 
@@ -69,4 +79,4 @@ func pulinhos(delta: float) -> void:
 	
 	acc_time += delta
 	
-	img_pivot.position.y = abs(sin(acc_time*5) * 0.2)
+	img_pivot.position.y = abs(sin(acc_time*pulinho_freq) * pulinho_altura)
