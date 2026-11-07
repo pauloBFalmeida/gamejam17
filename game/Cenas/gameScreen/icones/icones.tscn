@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cr1jf80amedlg"]
+
+[ext_resource type="Script" uid="uid://d1ploql5fouki" path="res://Cenas/gameScreen/icones/icones.gd" id="1_n7r4h"]
+[ext_resource type="Texture2D" uid="uid://bk7y6dsbsw7uw" path="res://Assets/emotes/amarelo_bravo_indignado .png" id="2_f57n4"]
+[ext_resource type="Texture2D" uid="uid://ce4kkh8p5iwxr" path="res://Assets/emotes/amarelo_cansado.png" id="3_hbppu"]
+[ext_resource type="Texture2D" uid="uid://bo10hn75fwgfa" path="res://Assets/emotes/azul_doente.png" id="4_owkan"]
+[ext_resource type="Texture2D" uid="uid://vnb084s3i6ak" path="res://Assets/emotes/emoti duvidando.png" id="5_ooffg"]
+
+[node name="IconesUI" type="Control" unique_id=413392522]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+script = ExtResource("1_n7r4h")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2122210399]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=885463180]
+texture_filter = 1
+layout_mode = 2
+
+[node name="Icon1" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1824002014]
+layout_mode = 2
+texture = ExtResource("2_f57n4")
+expand_mode = 3
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer" unique_id=384567543]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon2" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1440375725]
+layout_mode = 2
+texture = ExtResource("3_hbppu")
+expand_mode = 3
+
+[node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1081534956]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon3" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1325881581]
+layout_mode = 2
+texture = ExtResource("4_owkan")
+expand_mode = 3
+
+[node name="Spacer3" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1707498683]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon4" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1916402426]
+layout_mode = 2
+texture = ExtResource("5_ooffg")
+expand_mode = 3
+
+[node name="Spacer4" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1098664726]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Icon5" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1590132004]
+layout_mode = 2
+texture = ExtResource("5_ooffg")
+expand_mode = 3
