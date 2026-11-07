@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cp1nxotlreslp" path="res://Cenas/gameScreen/game_screen.gd" id="1_x4uh1"]
 [ext_resource type="PackedScene" uid="uid://b0fk6h2nvuja1" path="res://Cenas/game.tscn" id="2_qhofh"]
+[ext_resource type="Texture2D" uid="uid://bk7y6dsbsw7uw" path="res://Assets/emotes/amarelo_bravo_indignado .png" id="3_apsch"]
 [ext_resource type="PackedScene" uid="uid://cmt0o3s58ai60" path="res://Menus/config/menu_config.tscn" id="3_shyqf"]
+[ext_resource type="Texture2D" uid="uid://ce4kkh8p5iwxr" path="res://Assets/emotes/amarelo_cansado.png" id="4_bu3bb"]
+[ext_resource type="Texture2D" uid="uid://bo10hn75fwgfa" path="res://Assets/emotes/azul_doente.png" id="5_bu3bb"]
+[ext_resource type="Texture2D" uid="uid://vnb084s3i6ak" path="res://Assets/emotes/emoti duvidando.png" id="6_fxyiu"]
 
 [node name="GameScreen" type="Control" unique_id=728819084]
 layout_mode = 3
@@ -34,6 +38,79 @@ render_target_update_mode = 4
 
 [node name="Game" parent="SubViewportContainer/SubViewport" unique_id=46660508 instance=ExtResource("2_qhofh")]
 
-[node name="MenuConfig" parent="." unique_id=45229521 instance=ExtResource("3_shyqf")]
+[node name="Icones" type="Control" parent="." unique_id=168333741]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Icones" unique_id=209325821]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Icones/MarginContainer" unique_id=104922234]
+texture_filter = 1
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Icones/MarginContainer/HBoxContainer" unique_id=955852977]
+layout_mode = 2
+texture = ExtResource("3_apsch")
+expand_mode = 3
+
+[node name="Spacer" type="Control" parent="Icones/MarginContainer/HBoxContainer" unique_id=1902978190]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Icones/MarginContainer/HBoxContainer" unique_id=1014147251]
+layout_mode = 2
+texture = ExtResource("4_bu3bb")
+expand_mode = 3
+
+[node name="Spacer2" type="Control" parent="Icones/MarginContainer/HBoxContainer" unique_id=1477882327]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect3" type="TextureRect" parent="Icones/MarginContainer/HBoxContainer" unique_id=1163196633]
+layout_mode = 2
+texture = ExtResource("5_bu3bb")
+expand_mode = 3
+
+[node name="Spacer3" type="Control" parent="Icones/MarginContainer/HBoxContainer" unique_id=2056787434]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect4" type="TextureRect" parent="Icones/MarginContainer/HBoxContainer" unique_id=1279697113]
+layout_mode = 2
+texture = ExtResource("6_fxyiu")
+expand_mode = 3
+
+[node name="Spacer4" type="Control" parent="Icones/MarginContainer/HBoxContainer" unique_id=39530157]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect5" type="TextureRect" parent="Icones/MarginContainer/HBoxContainer" unique_id=317701513]
+layout_mode = 2
+texture = ExtResource("6_fxyiu")
+expand_mode = 3
+
+[node name="Menus" type="Control" parent="." unique_id=844506328]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuConfig" parent="Menus" unique_id=45229521 instance=ExtResource("3_shyqf")]
 visible = false
 layout_mode = 1

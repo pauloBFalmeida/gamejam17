@@ -91,3 +91,7 @@ unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.01
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/ButtonScreenSizeL" to="." method="_on_button_screen_size_l_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/ButtonScreenSizeR" to="." method="_on_button_screen_size_r_pressed"]
+[connection signal="value_changed" from="VBoxContainer/MarginContainer2/HSliderMusica" to="." method="_on_h_slider_musica_value_changed"]
