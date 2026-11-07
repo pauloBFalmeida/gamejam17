@@ -20,7 +20,7 @@ const rotacao_duracao := 1.2 ## em seg
 var esta_andando : bool = false
 var acc_time := 0.0
 
-var tween : Tween
+var tween_rot : Tween
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -56,21 +56,21 @@ func get_direcao() -> Vector3:
 	return direction
 
 func rotacionar(horario: bool = false) -> void:
-	if is_instance_valid(tween) and tween.is_running(): return
+	if is_instance_valid(tween_rot) and tween_rot.is_running(): return
 	
 	if horario and sprite_3d.flip_h: return
 	elif (not horario) and (not sprite_3d.flip_h): return
 	
-	tween = create_tween()
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(
+	tween_rot = create_tween()
+	tween_rot.set_ease(Tween.EASE_IN_OUT)
+	tween_rot.set_trans(Tween.TRANS_LINEAR)
+	tween_rot.tween_property(
 		sprite_3d,
 		"rotation:y",
 		-PI if horario else PI,
 		rotacao_duracao
 	).from(0.0)
-	await tween.finished
+	await tween_rot.finished
 	sprite_3d.flip_h = horario
 	sprite_3d.rotation.y = 0.0
 
