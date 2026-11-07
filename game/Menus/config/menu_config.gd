@@ -5,11 +5,11 @@ extends Control
 @onready var button_screen_size_r: Button = %ButtonScreenSizeR
 @onready var h_slider_musica: HSlider = %HSliderMusica
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	_update_values()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _update_values() -> void:
+	var screen_size : Vector2i = GerenciadorSave.get_config(GerenciadorSave.ConfigType.SIZE_TELA)
+	label_screen_size.text = "%d x %d" % [screen_size.x, screen_size.y]
+	var vol_musica : float = GerenciadorSave.get_config(GerenciadorSave.ConfigType.VOL_MUSICA)
+	h_slider_musica.set_value_no_signal(vol_musica)

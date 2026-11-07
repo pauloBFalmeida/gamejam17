@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.50534403, 0.5053441, 0.50534403, 1)
+color = Color(0.43592626, 0.5027032, 0.66858286, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2143727086]
 layout_mode = 1
@@ -60,7 +60,7 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "AAAAAAAA 3030"
+text = "500 x 500"
 
 [node name="Control2" type="Control" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1100342016]
 layout_mode = 2
@@ -89,3 +89,5 @@ theme_override_constants/margin_right = 100
 [node name="HSliderMusica" type="HSlider" parent="VBoxContainer/MarginContainer2" unique_id=1340314066]
 unique_name_in_owner = true
 layout_mode = 2
+max_value = 1.0
+step = 0.01
