@@ -6,11 +6,13 @@ class_name MovimentacaoPersonagem
 const min_x_direcao := 0.6
 const rotacao_duracao := 1.2 ## em seg
 
+@export var img_pivot: Node3D
 @export var sprite_3d: Sprite3D
 @export var navigation_agent_3d: NavigationAgent3D
 @export var personagem: CharacterBody3D
 
-var deve_andar : bool = false
+var esta_andando : bool = false
+var acc_time := 0.0
 
 var tween : Tween
 
@@ -21,7 +23,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		random_pos.z = randf_range(-1.2, 1.2)
 		navigation_agent_3d.target_position = random_pos
 		
-		deve_andar = false 
+		esta_andando = false 
+		acc_time = 0.0
 		
 		var direcao := get_direcao()
 		if direcao.x < -min_x_direcao:
@@ -34,7 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			_comecar_andar()
 
 func _comecar_andar() -> void:
-	deve_andar = true
+	esta_andando = true
 
 func get_direcao() -> Vector3:
 	var dest := navigation_agent_3d.get_next_path_position()
@@ -61,3 +64,9 @@ func rotacionar(horario: bool = false) -> void:
 	sprite_3d.flip_h = horario
 	sprite_3d.rotation.y = 0.0
 
+func pulinhos(delta: float) -> void:
+	if not esta_andando: return
+	
+	acc_time += delta
+	
+	img_pivot.position.y = abs(sin(acc_time*5) * 0.2)

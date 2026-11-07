@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0fk6h2nvuja1"]
 
 [ext_resource type="PackedScene" uid="uid://b38om46bvne5q" path="res://Cenas/personagem/personagem.tscn" id="1_fd8wr"]
+[ext_resource type="PackedScene" uid="uid://djq6o1o26ou0w" path="res://Assets/modelos/casamuitoengracada.glb" id="2_csek2"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_u6ok8"]
 
@@ -33,6 +34,7 @@ current = true
 fov = 50.0
 
 [node name="Quarto" type="Node3D" parent="Mundo" unique_id=421050621]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mundo/Quarto" unique_id=364605563]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.018509626, 1)
@@ -114,6 +116,7 @@ navigation_mesh = SubResource("NavigationMesh_smq05")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Mundo/NavigationRegion3D" unique_id=1123447029]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+visible = false
 use_collision = true
 polygon = PackedVector2Array(1, -2, -1, -2, -2, 0, -2, 2, 2, 2, 2, 0)
 depth = 0.1
@@ -127,3 +130,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Mundo" unique_id=1934906747]
 environment = SubResource("Environment_wm8yg")
+
+[node name="casamuitoengracada" parent="." unique_id=1300383137 instance=ExtResource("2_csek2")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.01595974, 0, -0.05609131)
