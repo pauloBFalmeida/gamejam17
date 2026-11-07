@@ -9,6 +9,4 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = movimentacao.get_direcao() * movimentacao.velocidade
 	
-	movimentacao.pulinhos(delta)
-	
 	move_and_slide()

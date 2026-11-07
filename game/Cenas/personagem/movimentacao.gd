@@ -5,8 +5,8 @@ class_name MovimentacaoPersonagem
 ## distancia chegar objetivo (squared)
 @export var dist_chegar := 0.02
 
-@export var pulinho_altura := 0.12
-@export var pulinho_freq := 8.0
+@export var pulinho_altura := 0.08
+@export var pulinho_freq := 0.3
 
 
 const min_x_direcao := 0.6
@@ -21,8 +21,12 @@ var esta_andando : bool = false
 var acc_time := 0.0
 
 var tween_rot : Tween
+var tween_pulinhos : Tween
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_up"):
+		comecar_pulinhos()
+	
 	if event.is_action_pressed("ui_accept"):
 		var random_pos := Vector3.ZERO
 		random_pos.x = randf_range(-1.2, 1.2)
@@ -44,13 +48,18 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _comecar_andar() -> void:
 	esta_andando = true
+	comecar_pulinhos()
+
+func _parar_andar() -> void:
+	esta_andando = false
+	parar_pulinhos()
 
 func get_direcao() -> Vector3:
 	var dest := navigation_agent_3d.get_next_path_position()
 	var local_dest = dest - personagem.global_position
 	
 	if local_dest.length_squared() < dist_chegar:
-		esta_andando = false
+		_parar_andar()
 	
 	var direction = local_dest.normalized()
 	return direction
@@ -63,7 +72,7 @@ func rotacionar(horario: bool = false) -> void:
 	
 	tween_rot = create_tween()
 	tween_rot.set_ease(Tween.EASE_IN_OUT)
-	tween_rot.set_trans(Tween.TRANS_LINEAR)
+	tween_rot.set_trans(Tween.TRANS_SINE)
 	tween_rot.tween_property(
 		sprite_3d,
 		"rotation:y",
@@ -74,9 +83,39 @@ func rotacionar(horario: bool = false) -> void:
 	sprite_3d.flip_h = horario
 	sprite_3d.rotation.y = 0.0
 
-func pulinhos(delta: float) -> void:
-	if not esta_andando: return
+func comecar_pulinhos() -> void:
+	if tween_pulinhos:
+		tween_pulinhos.stop()
 	
-	acc_time += delta
+	tween_pulinhos = create_tween()
+	tween_pulinhos.set_ease(Tween.EASE_IN_OUT)
+	tween_pulinhos.set_trans(Tween.TRANS_QUAD)
+	tween_pulinhos.tween_property(
+		img_pivot,
+		"position:y",
+		pulinho_altura,
+		pulinho_freq
+	).from(0.0)
+	#await tween_pulinhos.finished
+	tween_pulinhos.tween_property(
+		img_pivot,
+		"position:y",
+		0.0,
+		pulinho_freq
+	).from(pulinho_altura)
+	tween_pulinhos.set_loops()
+
+func parar_pulinhos() -> void:
+	if tween_pulinhos:
+		tween_pulinhos.stop()
 	
-	img_pivot.position.y = abs(sin(acc_time*pulinho_freq) * pulinho_altura)
+	var tween := create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(
+		img_pivot,
+		"position:y",
+		0.0,
+		pulinho_freq
+	).from_current()
+	
