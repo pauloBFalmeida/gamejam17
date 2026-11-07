@@ -13,15 +13,18 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 88.0
 offset_top = 121.0
-offset_right = 538.0
-offset_bottom = 521.0
+offset_right = 138.0
+offset_bottom = 171.0
 
 [node name="GameScreen" parent="PivotGameScreen" unique_id=728819084 instance=ExtResource("2_f4xj1")]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_right = 455.0
 offset_bottom = 405.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=156811594]
 anchors_preset = 15
