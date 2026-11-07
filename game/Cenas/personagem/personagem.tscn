@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b38om46bvne5q"]
+
+[ext_resource type="Texture2D" uid="uid://b83hcoeosb0lh" path="res://_debug/temps/personagem.png" id="1_5n1mn"]
+[ext_resource type="Script" uid="uid://ctdyax7wsncdt" path="res://Cenas/personagem/personagem.gd" id="1_en5i7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_smq05"]
+radius = 0.2
+
+[node name="Personagem" type="CharacterBody3D" unique_id=947971233]
+axis_lock_linear_y = true
+motion_mode = 1
+script = ExtResource("1_en5i7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1529258877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("SphereShape3D_smq05")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=825049917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+texture = ExtResource("1_5n1mn")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=756358307]
