@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b83hcoeosb0lh" path="res://_debug/temps/personagem.png" id="1_5n1mn"]
 [ext_resource type="Script" uid="uid://ctdyax7wsncdt" path="res://Cenas/personagem/personagem.gd" id="1_en5i7"]
+[ext_resource type="Script" uid="uid://dl7yimcvs33np" path="res://Cenas/personagem/movimentacao.gd" id="3_bkstj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_smq05"]
 radius = 0.2
@@ -23,3 +24,9 @@ texture = ExtResource("1_5n1mn")
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.3529412, 1, 0.14509805, 1)
+
+[node name="Movimentacao" type="Node" parent="." unique_id=582851084 node_paths=PackedStringArray("sprite_3d", "navigation_agent_3d", "personagem")]
+script = ExtResource("3_bkstj")
+sprite_3d = NodePath("../Sprite3D")
+navigation_agent_3d = NodePath("../NavigationAgent3D")
+personagem = NodePath("..")
