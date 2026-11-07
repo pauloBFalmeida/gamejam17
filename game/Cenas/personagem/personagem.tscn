@@ -20,3 +20,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 texture = ExtResource("1_5n1mn")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=756358307]
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.3529412, 1, 0.14509805, 1)
