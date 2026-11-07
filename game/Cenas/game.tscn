@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0fk6h2nvuja1"]
 
 [ext_resource type="PackedScene" uid="uid://b38om46bvne5q" path="res://Cenas/personagem/personagem.tscn" id="1_fd8wr"]
+[ext_resource type="Script" uid="uid://bbkfem7cwbd8a" path="res://Scripts/sistema_click_3d.gd" id="1_wm8yg"]
 [ext_resource type="PackedScene" uid="uid://djq6o1o26ou0w" path="res://Assets/modelos/casamuitoengracada.glb" id="2_csek2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_smq05"]
@@ -23,6 +24,10 @@ sky = SubResource("Sky_csek2")
 glow_enabled = true
 
 [node name="Game" type="Node" unique_id=46660508]
+
+[node name="SistemaClick" type="Node" parent="." unique_id=1391045848 node_paths=PackedStringArray("node_3d_space")]
+script = ExtResource("1_wm8yg")
+node_3d_space = NodePath("../Mundo")
 
 [node name="Mundo" type="Node3D" parent="." unique_id=1343800288]
 
