@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cvtumj153wthm" path="res://MAIN/main_game.gd" id="1_np80u"]
 [ext_resource type="PackedScene" uid="uid://8je0p1npn8ul" path="res://Cenas/gameScreen/game_screen.tscn" id="2_f4xj1"]
 [ext_resource type="Texture2D" uid="uid://d2lgymunr34rr" path="res://_debug/temps/casca.png" id="4_1goxu"]
+[ext_resource type="Script" uid="uid://qxgpr8vpiyfc" path="res://Scripts/button_mover_janela.gd" id="4_umrpu"]
 
 [node name="MainGame" type="Node" unique_id=610779202]
 script = ExtResource("1_np80u")
@@ -35,3 +36,19 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_1goxu")
+
+[node name="ButtonMoverJanela" type="Button" parent="." unique_id=831590542]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -181.0
+offset_right = 181.0
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 25
+action_mode = 0
+text = "Mover"
+script = ExtResource("4_umrpu")
+
+[connection signal="pressed" from="ButtonMoverJanela" to="ButtonMoverJanela" method="_on_pressed"]
