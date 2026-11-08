@@ -1,6 +1,14 @@
 class_name IconesUI
 extends Control
 
+@export var imgs_res_por_mood : Dictionary[GerenciadorMood.Mood, ImgsMoodRes] = {
+	GerenciadorMood.Mood.FELICIDADE: preload("uid://dp75t3gbjdftd"),
+	GerenciadorMood.Mood.MENTAL: preload("uid://cup72km5uarck"),
+	GerenciadorMood.Mood.FOBIA: preload("uid://vjemhq4rmgeh"),
+	GerenciadorMood.Mood.COMIDA: preload("uid://dsb1kdbpptef8"),
+	GerenciadorMood.Mood.LIMPEZA: preload("uid://b15yv6v2m83ps"),
+}
+
 @onready var icon_1: TextureRect = $MarginContainer/HBoxContainer/Icon1
 @onready var icon_2: TextureRect = $MarginContainer/HBoxContainer/Icon2
 @onready var icon_3: TextureRect = $MarginContainer/HBoxContainer/Icon3
@@ -26,4 +34,6 @@ func set_mood(_mood: GerenciadorMood.Mood, valor: int = 3) -> void:
 			_icon = icon_5
 	
 	if _icon:
-		_icon.texture = null
+		var img_res : ImgsMoodRes = imgs_res_por_mood[_mood]
+		var tex : Texture = img_res.get_img(valor)
+		_icon.texture = tex

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ImgsMoodRes" format=3 uid="uid://cup72km5uarck"]
+
+[ext_resource type="Script" uid="uid://cmurxqduqgi1a" path="res://Cenas/gameScreen/icones/imgs_mood_res.gd" id="1_vo68p"]
+
+[resource]
+script = ExtResource("1_vo68p")
+metadata/_custom_type_script = "uid://cmurxqduqgi1a"
