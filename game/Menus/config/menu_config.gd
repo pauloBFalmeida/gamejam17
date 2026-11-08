@@ -1,3 +1,4 @@
+class_name MenuConfig
 extends Control
 
 @onready var button_up: Button = %ButtonUp

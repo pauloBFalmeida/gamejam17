@@ -6,26 +6,19 @@ extends Control
 @onready var game: Game = $SubViewportContainer/SubViewport/Game
 
 @onready var menus: Control = $Menus
-@onready var menu_config: Control = $Menus/MenuConfig
-
 
 @onready var transition: ColorRect = $Transition
 
+const MENU_CONFIG = preload("uid://cmt0o3s58ai60")
+
+var menu_config : MenuConfig
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.keycode == KEY_A:
-			var _tween := _transicao()
-			if _tween: await _tween.finished
-			menus.hide()
-			menu_config.hide()
-		
+			mostar_menu_config()
 		elif event.keycode == KEY_S:
-			var _tween := _transicao()
-			if _tween: await _tween.finished
-			menus.show()
-			menu_config.show()
-			menu_config.abrir()
+			fechar_menu_config()
 		
 		elif event.keycode == KEY_G:
 			var _tween := _transicao()
@@ -35,6 +28,25 @@ func _input(event: InputEvent) -> void:
 			var _tween := _transicao()
 			if _tween: _tween.finished.connect(func(): game.comodo.trocar_comodo(Comodo.Local.BANHEIRO))
 
+
+func mostar_menu_config() -> void:
+		menus.hide()
+		var _tween := _transicao()
+		if _tween: _tween.finished.connect(
+			func(): 
+				menu_config = MENU_CONFIG.instantiate()
+				menus.add_child(menu_config)
+				menus.show()
+				menu_config.abrir()
+		)
+
+func fechar_menu_config() -> void:
+	var _tween := _transicao()
+	if _tween: _tween.finished.connect(
+		func(): 
+			menus.hide()
+			menu_config.queue_free()
+	)
 
 func _transicao() -> Tween:
 	if transition.visible: return null

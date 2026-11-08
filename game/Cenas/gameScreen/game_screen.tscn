@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cp1nxotlreslp" path="res://Cenas/gameScreen/game_screen.gd" id="1_x4uh1"]
 [ext_resource type="PackedScene" uid="uid://b0fk6h2nvuja1" path="res://Cenas/game.tscn" id="2_qhofh"]
 [ext_resource type="PackedScene" uid="uid://cr1jf80amedlg" path="res://Cenas/gameScreen/icones/icones.tscn" id="3_qhofh"]
-[ext_resource type="PackedScene" uid="uid://cmt0o3s58ai60" path="res://Menus/config/menu_config.tscn" id="3_shyqf"]
 
 [node name="GameScreen" type="Control" unique_id=728819084]
 layout_mode = 3
@@ -47,12 +46,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuConfig" parent="Menus" unique_id=45229521 instance=ExtResource("3_shyqf")]
-visible = false
-layout_mode = 1
-
 [node name="Transition" type="ColorRect" parent="." unique_id=779935815]
 visible = false
+z_index = 10
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

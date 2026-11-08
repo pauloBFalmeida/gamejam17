@@ -29,6 +29,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=156811594]
+z_index = 20
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -39,6 +40,7 @@ texture = ExtResource("4_1goxu")
 
 [node name="ButtonMoverJanela" type="Button" parent="." unique_id=831590542]
 self_modulate = Color(1, 1, 1, 0)
+z_index = 30
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
