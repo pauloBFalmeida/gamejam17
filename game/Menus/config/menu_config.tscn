@@ -20,111 +20,166 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.43592626, 0.5027032, 0.66858286, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2143727086]
+[node name="ButtonUp" type="Button" parent="." unique_id=1361961490]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -10.5
+offset_top = 32.0
+offset_right = 10.5
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "/\\"
+
+[node name="ButtonDown" type="Button" parent="." unique_id=955636371]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.5
+offset_top = -61.0
+offset_right = 10.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "\\/"
+
+[node name="ConfigContainer" type="Control" parent="." unique_id=514642561]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 63.0
-offset_top = 19.0
+offset_top = 129.0
 offset_right = -63.0
-offset_bottom = -19.0
+offset_bottom = -129.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=252440811]
+[node name="TamanhoTela" type="VBoxContainer" parent="ConfigContainer" unique_id=1211509493]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ConfigContainer/TamanhoTela" unique_id=252440811]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Tamanho da Tela"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=640676442]
+[node name="MarginContainer" type="MarginContainer" parent="ConfigContainer/TamanhoTela" unique_id=640676442]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=749333450]
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfigContainer/TamanhoTela/MarginContainer" unique_id=749333450]
 layout_mode = 2
 alignment = 1
 
-[node name="ButtonScreenSizeL" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1153436765]
+[node name="ButtonScreenSizeL" type="Button" parent="ConfigContainer/TamanhoTela/MarginContainer/HBoxContainer" unique_id=1153436765]
 unique_name_in_owner = true
 layout_mode = 2
 text = "<"
 
-[node name="Control" type="Control" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=2116964825]
+[node name="Control" type="Control" parent="ConfigContainer/TamanhoTela/MarginContainer/HBoxContainer" unique_id=2116964825]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LabelScreenSize" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1824935717]
+[node name="LabelScreenSize" type="Label" parent="ConfigContainer/TamanhoTela/MarginContainer/HBoxContainer" unique_id=1824935717]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "500 x 500"
 
-[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1100342016]
+[node name="Control2" type="Control" parent="ConfigContainer/TamanhoTela/MarginContainer/HBoxContainer" unique_id=1100342016]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ButtonScreenSizeR" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=894801080]
+[node name="ButtonScreenSizeR" type="Button" parent="ConfigContainer/TamanhoTela/MarginContainer/HBoxContainer" unique_id=894801080]
 unique_name_in_owner = true
 layout_mode = 2
 text = ">"
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=2119800657]
+[node name="MarginContainer3" type="MarginContainer" parent="ConfigContainer/TamanhoTela" unique_id=2119800657]
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 
-[node name="ButtonAjustarTamanho" type="Button" parent="VBoxContainer/MarginContainer3" unique_id=1412460419]
+[node name="ButtonAjustarTamanho" type="Button" parent="ConfigContainer/TamanhoTela/MarginContainer3" unique_id=1412460419]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Ajustar Tamanho"
 
-[node name="Separador" type="Control" parent="VBoxContainer" unique_id=240749716]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
+[node name="Volume" type="VBoxContainer" parent="ConfigContainer" unique_id=136831233]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer" unique_id=2068703635]
+[node name="Label" type="Label" parent="ConfigContainer/Volume" unique_id=2068703635]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Volume"
 horizontal_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1759823763]
+[node name="MarginContainer2" type="MarginContainer" parent="ConfigContainer/Volume" unique_id=1759823763]
 layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
 
-[node name="HSliderMusica" type="HSlider" parent="VBoxContainer/MarginContainer2" unique_id=1340314066]
+[node name="HSliderMusica" type="HSlider" parent="ConfigContainer/Volume/MarginContainer2" unique_id=1340314066]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 
-[node name="Separador2" type="Control" parent="VBoxContainer" unique_id=226516366]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
+[node name="Default" type="VBoxContainer" parent="ConfigContainer" unique_id=421514916]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1229204229]
+[node name="Label" type="Label" parent="ConfigContainer/Default" unique_id=1229204229]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Configurações Padrão"
 horizontal_alignment = 1
 
-[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer" unique_id=1749905511]
+[node name="MarginContainer4" type="MarginContainer" parent="ConfigContainer/Default" unique_id=1749905511]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="ButtonDefault" type="Button" parent="VBoxContainer/MarginContainer4" unique_id=1445485336]
+[node name="ButtonDefault" type="Button" parent="ConfigContainer/Default/MarginContainer4" unique_id=1445485336]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.88, 0.2904, 0.2904, 1)
 theme_override_font_sizes/font_size = 25
 text = "Voltar as Configurações Padrão"
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/ButtonScreenSizeL" to="." method="_on_button_screen_size_l_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/ButtonScreenSizeR" to="." method="_on_button_screen_size_r_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer3/ButtonAjustarTamanho" to="." method="_on_button_ajustar_tamanho_pressed"]
-[connection signal="value_changed" from="VBoxContainer/MarginContainer2/HSliderMusica" to="." method="_on_h_slider_musica_value_changed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer4/ButtonDefault" to="." method="_on_button_default_pressed"]
+[connection signal="pressed" from="ButtonUp" to="." method="_on_button_up_pressed"]
+[connection signal="pressed" from="ButtonDown" to="." method="_on_button_down_pressed"]
+[connection signal="pressed" from="ConfigContainer/TamanhoTela/MarginContainer/HBoxContainer/ButtonScreenSizeL" to="." method="_on_button_screen_size_l_pressed"]
+[connection signal="pressed" from="ConfigContainer/TamanhoTela/MarginContainer/HBoxContainer/ButtonScreenSizeR" to="." method="_on_button_screen_size_r_pressed"]
+[connection signal="pressed" from="ConfigContainer/TamanhoTela/MarginContainer3/ButtonAjustarTamanho" to="." method="_on_button_ajustar_tamanho_pressed"]
+[connection signal="value_changed" from="ConfigContainer/Volume/MarginContainer2/HSliderMusica" to="." method="_on_h_slider_musica_value_changed"]
+[connection signal="pressed" from="ConfigContainer/Default/MarginContainer4/ButtonDefault" to="." method="_on_button_default_pressed"]
