@@ -41,6 +41,7 @@ window/per_pixel_transparency/allowed=true
 
 folder_colors={
 "res://Assets/": "red",
+"res://Assets/ui/": "green",
 "res://Cenas/": "yellow",
 "res://MAIN/": "purple",
 "res://Menus/": "green",

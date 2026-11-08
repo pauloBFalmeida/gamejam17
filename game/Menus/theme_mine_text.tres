@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://b4g3ipl0t6uvy"]
+
+[ext_resource type="FontFile" uid="uid://datddvrq7uec5" path="res://Assets/ui/Minecraftia-Regular.ttf" id="1_70ynu"]
+
+[resource]
+default_font = ExtResource("1_70ynu")
+default_font_size = 25
