@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvtumj153wthm" path="res://MAIN/main_game.gd" id="1_np80u"]
 [ext_resource type="PackedScene" uid="uid://8je0p1npn8ul" path="res://Cenas/gameScreen/game_screen.tscn" id="2_f4xj1"]
-[ext_resource type="Texture2D" uid="uid://d2lgymunr34rr" path="res://_debug/temps/casca.png" id="4_1goxu"]
+[ext_resource type="Texture2D" uid="uid://djpodvw1lhti8" path="res://Assets/ui/tela tamagochi.png" id="3_umrpu"]
 [ext_resource type="Script" uid="uid://qxgpr8vpiyfc" path="res://Scripts/button_mover_janela.gd" id="4_umrpu"]
 
 [node name="MainGame" type="Node" unique_id=610779202]
@@ -22,21 +22,29 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -22.0
-offset_right = 468.0
-offset_bottom = 450.0
+offset_left = -21.0
+offset_top = -5.0
+offset_right = 472.0
+offset_bottom = 409.36884
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=156811594]
 z_index = 20
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -18.0
+offset_right = -3.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.014167, 1.0438825)
 mouse_filter = 2
-texture = ExtResource("4_1goxu")
+texture = ExtResource("3_umrpu")
+expand_mode = 2
 
 [node name="ButtonMoverJanela" type="Button" parent="." unique_id=831590542]
 self_modulate = Color(1, 1, 1, 0)

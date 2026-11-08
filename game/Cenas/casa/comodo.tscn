@@ -25,7 +25,7 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.01595974, -0.03933
 [node name="Geladeira" parent="SalaEstar" unique_id=587275481 instance=ExtResource("2_ff4y8")]
 
 [node name="JanelaPivot" type="Node3D" parent="SalaEstar" unique_id=13223371]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11899805, 1.4716796, -1.480895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11899805, 1.5476106, -0.16135502)
 
 [node name="Sprite3DJanela" type="Sprite3D" parent="SalaEstar/JanelaPivot" unique_id=1716707754]
 transform = Transform3D(-1.5613708e-07, 0, -3.572, 0, 2.5, 0, 3.572, 0, -1.5613708e-07, 8.053394, 3.0738683, -1.2398937)
@@ -60,6 +60,7 @@ texture = ExtResource("8_ff4y8")
 
 [node name="Banheiro" type="Node3D" parent="." unique_id=1473475829]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.011, -0.021, 0)
+visible = false
 
 [node name="Banheira" parent="Banheiro" unique_id=1632156286 instance=ExtResource("12_qs53r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1036668)

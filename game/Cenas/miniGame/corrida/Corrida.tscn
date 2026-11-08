@@ -34,35 +34,55 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.555, 0.71099997, 0.75, 1)
 
-[node name="Mundo" type="Node2D" parent="." unique_id=1823007523]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=327707792]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
-[node name="PivotCharacter" type="Node2D" parent="Mundo" unique_id=1351713217]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=370967934]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(640, 640)
+size_2d_override = Vector2i(500, 415)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Mundo" type="Node2D" parent="SubViewportContainer/SubViewport" unique_id=1823007523]
+position = Vector2(0, -23.99219)
+scale = Vector2(0.781, 0.648)
+
+[node name="PivotCharacter" type="Node2D" parent="SubViewportContainer/SubViewport/Mundo" unique_id=1351713217]
 position = Vector2(117, 417)
 
-[node name="Character" type="Node2D" parent="Mundo/PivotCharacter" unique_id=1291563133]
+[node name="Character" type="Node2D" parent="SubViewportContainer/SubViewport/Mundo/PivotCharacter" unique_id=1291563133]
 unique_name_in_owner = true
 
-[node name="AbandonoNeutro" type="Sprite2D" parent="Mundo/PivotCharacter/Character" unique_id=936882988]
+[node name="AbandonoNeutro" type="Sprite2D" parent="SubViewportContainer/SubViewport/Mundo/PivotCharacter/Character" unique_id=936882988]
+z_index = 1
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("1_2sdj3")
 
-[node name="Area2D" type="Area2D" parent="Mundo/PivotCharacter/Character" unique_id=1864173573]
+[node name="Area2D" type="Area2D" parent="SubViewportContainer/SubViewport/Mundo/PivotCharacter/Character" unique_id=1864173573]
 position = Vector2(-1.2799988, 64)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/PivotCharacter/Character/Area2D" unique_id=1249797074]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/Mundo/PivotCharacter/Character/Area2D" unique_id=1249797074]
 position = Vector2(1.2799988, 21)
 shape = SubResource("CircleShape2D_u6ok8")
 debug_color = Color(0.5246081, 0.41819385, 1, 0.41960785)
 
-[node name="CocoSpawner" type="Node2D" parent="Mundo" unique_id=2063254987]
+[node name="CocoSpawner" type="Node2D" parent="SubViewportContainer/SubViewport/Mundo" unique_id=2063254987]
 unique_name_in_owner = true
 position = Vector2(783, 531)
 
-[node name="Area2Pontos" type="Area2D" parent="Mundo" unique_id=1283931489]
+[node name="Area2Pontos" type="Area2D" parent="SubViewportContainer/SubViewport/Mundo" unique_id=1283931489]
 position = Vector2(-62, 481)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Area2Pontos" unique_id=2054634091]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/Mundo/Area2Pontos" unique_id=2054634091]
 position = Vector2(1.2799988, 21)
 shape = SubResource("CircleShape2D_u6ok8")
 debug_color = Color(0.645496, 0.5252746, 3.85046e-07, 0.41960785)
@@ -94,7 +114,6 @@ text = "0"
 horizontal_alignment = 2
 
 [node name="EndScreen" type="Control" parent="." unique_id=768850211]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -109,7 +128,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.55448, 0.38859996, 0.58, 1)
+color = Color(0.5331333, 0.4235, 0.55, 1)
 
 [node name="Label" type="Label" parent="EndScreen" unique_id=1077269807]
 layout_mode = 1
@@ -119,9 +138,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -70.5
-offset_top = -217.0
+offset_top = -164.0
 offset_right = 70.5
-offset_bottom = -107.0
+offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 80
@@ -134,10 +153,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -112.0
+offset_top = -1.0
+offset_right = 112.0
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
@@ -152,15 +171,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -60.0
-offset_top = 61.0
+offset_top = 58.0
 offset_right = 60.0
-offset_bottom = 84.0
+offset_bottom = 127.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.92941177, 0.7137255, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "50"
 horizontal_alignment = 1
 
-[connection signal="body_entered" from="Mundo/PivotCharacter/Character/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Mundo/Area2Pontos" to="." method="_on_area_2_pontos_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/Mundo/PivotCharacter/Character/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/Mundo/Area2Pontos" to="." method="_on_area_2_pontos_body_entered"]
 [connection signal="pressed" from="ButtonClick" to="." method="_on_button_click_pressed"]

@@ -10,8 +10,10 @@ extends Control
 @onready var transition: ColorRect = $Transition
 
 const MENU_CONFIG = preload("uid://cmt0o3s58ai60")
+const CORRIDA = preload("uid://bvh3yenoa4ufj")
 
 var menu_config : MenuConfig
+var minigame_corrida : Corrida
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -19,6 +21,9 @@ func _input(event: InputEvent) -> void:
 			mostar_menu_config()
 		elif event.keycode == KEY_S:
 			fechar_menu_config()
+			fechar_minigame_corrida()
+		elif event.keycode == KEY_Q:
+			mostar_minigame_corrida()
 		
 		elif event.keycode == KEY_G:
 			ir_sala()
@@ -50,6 +55,8 @@ func mostar_menu_config() -> void:
 	)
 
 func fechar_menu_config() -> void:
+	if not is_instance_valid(menu_config): return
+	
 	var _tween := _transicao()
 	if _tween: _tween.finished.connect(
 		func(): 
@@ -60,6 +67,25 @@ func fechar_menu_config() -> void:
 # Mini Game
 # -----------------------------------------------------------------------------
 
+func mostar_minigame_corrida() -> void:
+	menus.hide()
+	var _tween := _transicao()
+	if _tween: _tween.finished.connect(
+		func(): 
+			minigame_corrida = CORRIDA.instantiate()
+			menus.add_child(minigame_corrida)
+			menus.show()
+	)
+
+func fechar_minigame_corrida() -> void:
+	if not is_instance_valid(minigame_corrida): return
+	
+	var _tween := _transicao()
+	if _tween: _tween.finished.connect(
+		func(): 
+			menus.hide()
+			minigame_corrida.queue_free()
+	)
 
 # Transicao
 # -----------------------------------------------------------------------------

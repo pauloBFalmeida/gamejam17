@@ -39,7 +39,7 @@ func _timer_velocidade() -> void:
 func _timer_obstaculo() -> void:
 	if not jogo_rolando: return
 	
-	var delay := randf_range(1.2, 4.0)
+	var delay := randf_range(1.6, 4.0)
 	var timer := get_tree().create_timer(delay)
 	timer.timeout.connect(_timer_obstaculo)
 	
