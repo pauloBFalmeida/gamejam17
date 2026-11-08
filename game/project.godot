@@ -10,7 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Game"
+config/name="My Screepy"
+config/description="Cuide do seu screepy ou sofra as consequências"
+config/version="1.0"
 run/main_scene="uid://dhbw3drpo5oiq"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
