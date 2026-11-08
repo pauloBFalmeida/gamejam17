@@ -8,7 +8,7 @@ enum ConfigType {
 	VOL_MUSICA,
 }
 
-const configName := {
+const configName : Dictionary[ConfigType, String] = {
 	ConfigType.SIZE_TELA: "tamanho_tela",
 	ConfigType.VOL_MUSICA: "volume_musica",
 }
@@ -16,7 +16,7 @@ const configName := {
 # Possibilidades
 # -----------------------------------------------------------------------------
 
-const configDefault := {
+const configDefault : Dictionary[ConfigType, Variant] = {
 	ConfigType.SIZE_TELA: Vector2i(320,320),
 	ConfigType.VOL_MUSICA: 0.5,
 }
@@ -31,17 +31,19 @@ const tamanhos_tela := [
 
 
 
+var configuracoes : Dictionary[String, Variant] = {}
 
 # Pegar do arquivo
 # -----------------------------------------------------------------------------
-var configuracoes = {}
 
 func _enter_tree() -> void:
 	carregar()
 
 func get_config(config_type: ConfigType) -> Variant:
 	var config_nome : String = configName[config_type]
-	return configuracoes[config_nome]
+	if configuracoes.has(config_nome):
+		return configuracoes[config_nome]
+	return null
 
 func salvar() -> void:
 	var config_file = ConfigFile.new()
@@ -65,14 +67,43 @@ func carregar() -> void:
 	for config_name in configName.values():
 		var valor = config_file.get_value(SECTION_CONFIG, config_name)
 		configuracoes[config_name] = valor
+	_aplicar_configs()
+
+## ajusta todos os valores para as configuracoes
+func _aplicar_configs() -> void:
+	for config_type in ConfigType.values():
+		_ajustar_variavel(config_type)
 
 func set_default_values() -> void:
 	for config_type in ConfigType.values():
 		var config_nome : String = configName[config_type]
 		configuracoes[config_nome] = configDefault[config_type]
+	_aplicar_configs()
+	salvar()
+
+func _set_config(config_type: ConfigType, valor: Variant) -> void:
+	var config_nome : String = configName[config_type]
+	configuracoes[config_nome] = valor
+
+# Set os valores 
+# -----------------------------------------------------------------------------
+func _ajustar_variavel(config_type: ConfigType) -> void:
+	var _valor : Variant = get_config(config_type)
+	
+	# se nao conseguiu pegar o valor, pare
+	if not _valor: return
+	
+	match config_type:
+		ConfigType.SIZE_TELA:
+			var tamanho: Vector2i = _valor
+			DisplayServer.window_set_size(tamanho)
+		ConfigType.VOL_MUSICA:
+			pass
 
 # Ajustes
 # -----------------------------------------------------------------------------
 
 func set_tamanho_tela(tamanho: Vector2i) -> void:
+	_set_config(ConfigType.SIZE_TELA, tamanho)
 	DisplayServer.window_set_size(tamanho)
+	salvar()
