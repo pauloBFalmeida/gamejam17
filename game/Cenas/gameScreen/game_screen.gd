@@ -21,6 +21,7 @@ enum Sala {
 
 const MENU_CONFIG = preload("uid://cmt0o3s58ai60")
 const CORRIDA = preload("uid://bvh3yenoa4ufj")
+const WINDOW_OPCOES = preload("uid://wdl2378mtpea")
 
 var tela_atual := Tela.GAME
 var sala_atual := Sala.SALA_ESTAR
@@ -116,8 +117,14 @@ func _transicao_out() -> void:
 	tweenOut.finished.connect(func(): transition.hide())
 
 
+var window_op : WindowOpcoes
 func _on_button_diabo_pressed() -> void:
-	pass # Replace with function body.
+	if is_instance_valid(window_op):
+		window_op.close()
+		return
+	
+	window_op = WINDOW_OPCOES.instantiate() as WindowOpcoes
+	add_child(window_op)
 
 
 func _on_button_config_pressed() -> void:

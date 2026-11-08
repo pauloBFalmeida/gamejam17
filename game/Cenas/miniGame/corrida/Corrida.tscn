@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dfektgi3rokb8" path="res://Scripts/audio.gd" id="3_lkbc5"]
 [ext_resource type="AudioStream" uid="uid://dt5lgpmhfnadl" path="res://Assets/sons/game/POW.wav" id="3_uj1ch"]
 [ext_resource type="Theme" uid="uid://bnrr2tnlhiikf" path="res://Menus/theme_mine_title.tres" id="4_h2qcr"]
+[ext_resource type="Texture2D" uid="uid://cx8dbh2uyfu47" path="res://Assets/icones/coin.png" id="5_h2qcr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u6ok8"]
 radius = 48.81228
@@ -107,18 +108,28 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -84.0
-offset_top = 15.0
-offset_right = -33.0
-offset_bottom = 139.0
+offset_left = -131.0
+offset_top = 8.0
+offset_right = -71.0
+offset_bottom = 148.0
 grow_horizontal = 0
 theme = ExtResource("3_hbn47")
 theme_override_colors/font_color = Color(0.93, 0.71300006, 0, 1)
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 70
 text = "0"
 horizontal_alignment = 2
 
+[node name="TextureRect2" type="TextureRect" parent="LabelPontuacao" unique_id=1882009383]
+texture_filter = 1
+layout_mode = 0
+offset_left = 52.0
+offset_top = 7.0
+offset_right = 132.0
+offset_bottom = 87.0
+texture = ExtResource("5_h2qcr")
+
 [node name="EndScreen" type="Control" parent="." unique_id=768850211]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -188,6 +199,15 @@ theme_override_colors/font_color = Color(0.92941177, 0.7137255, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "50"
 horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="EndScreen/LabelPontos" unique_id=1510747948]
+texture_filter = 1
+layout_mode = 0
+offset_left = -98.0
+offset_top = -6.5
+offset_right = -18.0
+offset_bottom = 73.5
+texture = ExtResource("5_h2qcr")
 
 [node name="ButtonVoltar" type="Button" parent="EndScreen" unique_id=594335839]
 layout_mode = 1
