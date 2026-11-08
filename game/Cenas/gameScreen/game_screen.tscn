@@ -50,3 +50,14 @@ grow_vertical = 2
 [node name="MenuConfig" parent="Menus" unique_id=45229521 instance=ExtResource("3_shyqf")]
 visible = false
 layout_mode = 1
+
+[node name="Transition" type="ColorRect" parent="." unique_id=779935815]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

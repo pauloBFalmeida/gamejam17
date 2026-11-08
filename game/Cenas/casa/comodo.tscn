@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cdlyk6k0egerw"]
 
+[ext_resource type="Script" uid="uid://bq455j1jxb23w" path="res://Cenas/casa/comodo.gd" id="1_ua5tq"]
 [ext_resource type="PackedScene" uid="uid://cgccvkj6jlkb6" path="res://Assets/modelos/salaEstar/Geladeira.glb" id="2_ff4y8"]
 [ext_resource type="Texture2D" uid="uid://dsvtm2ef1w1jy" path="res://Assets/outros/sala/ceu.png" id="2_ucr4b"]
 [ext_resource type="PackedScene" uid="uid://dnnlauneuwnxr" path="res://Assets/modelos/salaEstar/Janela.glb" id="3_i51w5"]
@@ -16,10 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://c0ai0qqi2lxs" path="res://Assets/modelos/banheiro/Privada.glb" id="14_noaof"]
 
 [node name="Comodo" type="Node3D" unique_id=324555866]
+script = ExtResource("1_ua5tq")
 
 [node name="SalaEstar" type="Node3D" parent="." unique_id=1232188920]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.01595974, -0.03933129, -0.05609131)
-visible = false
 
 [node name="Geladeira" parent="SalaEstar" unique_id=587275481 instance=ExtResource("2_ff4y8")]
 

@@ -3,6 +3,7 @@ extends Node
 
 @onready var sistema_click: SistemaClick3D = $SistemaClick
 @onready var personagem: Personagem = $Mundo/Personagem
+@onready var comodo: Comodo = $Mundo/Comodo
 
 const nome_mes : Dictionary[int, String] = {
 	1: "Janeiro",
