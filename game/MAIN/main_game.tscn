@@ -61,4 +61,52 @@ action_mode = 0
 text = "Mover"
 script = ExtResource("4_umrpu")
 
+[node name="ButtonComodo" type="Button" parent="." unique_id=421717617]
+z_index = 30
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -92.0
+offset_right = -90.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Comodo"
+
+[node name="ButtonConfig" type="Button" parent="." unique_id=241931943]
+z_index = 30
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 83.0
+offset_top = -90.0
+offset_right = 156.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Config"
+
+[node name="ButtonDiabo" type="Button" parent="." unique_id=1671047548]
+z_index = 30
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -90.0
+offset_right = 45.5
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Diabo"
+
 [connection signal="pressed" from="ButtonMoverJanela" to="ButtonMoverJanela" method="_on_pressed"]
+[connection signal="pressed" from="ButtonComodo" to="PivotGameScreen/GameScreen" method="_on_button_comodo_pressed"]
+[connection signal="pressed" from="ButtonConfig" to="PivotGameScreen/GameScreen" method="_on_button_config_pressed"]
+[connection signal="pressed" from="ButtonDiabo" to="PivotGameScreen/GameScreen" method="_on_button_diabo_pressed"]

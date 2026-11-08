@@ -6,6 +6,10 @@ enum Tela {
 	MENU_CONFIG,
 	MINIGAME_CORRIDA,
 }
+enum Sala {
+	SALA_ESTAR,
+	BANHEIRO,
+}
 
 @export var duracao_transicao := 1.2
 
@@ -19,6 +23,7 @@ const MENU_CONFIG = preload("uid://cmt0o3s58ai60")
 const CORRIDA = preload("uid://bvh3yenoa4ufj")
 
 var tela_atual := Tela.GAME
+var sala_atual := Sala.SALA_ESTAR
 
 var menu_config : MenuConfig
 var minigame_corrida : Corrida
@@ -27,15 +32,10 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.keycode == KEY_Q:
 			trocar_tela(Tela.GAME)
-		elif event.keycode == KEY_A:
-			trocar_tela(Tela.MENU_CONFIG)
+		#elif event.keycode == KEY_A:
+			#trocar_tela(Tela.MENU_CONFIG)
 		elif event.keycode == KEY_S:
 			trocar_tela(Tela.MINIGAME_CORRIDA)
-		
-		elif event.keycode == KEY_G:
-			ir_sala()
-		elif event.keycode == KEY_H:
-			ir_banheiro()
 
 func _ready() -> void:
 	menus.hide()
@@ -113,3 +113,24 @@ func _transicao_out() -> void:
 	).from(1.0)
 	
 	tweenOut.finished.connect(func(): transition.hide())
+
+
+func _on_button_diabo_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_config_pressed() -> void:
+	if tela_atual == Tela.MENU_CONFIG:
+		trocar_tela(Tela.GAME)
+	else:
+		trocar_tela(Tela.MENU_CONFIG)
+
+func _on_button_comodo_pressed() -> void:
+	if tela_atual != Tela.GAME: return
+	
+	if sala_atual == Sala.SALA_ESTAR:
+		sala_atual = Sala.BANHEIRO
+		ir_banheiro()
+	elif sala_atual == Sala.BANHEIRO:
+		sala_atual = Sala.SALA_ESTAR
+		ir_sala()
