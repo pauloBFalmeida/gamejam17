@@ -97,7 +97,7 @@ func _update_opcao(subindo: bool) -> void:
 # Musica
 # -----------------------------------------------------------------------------
 func _on_h_slider_musica_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	GerenciadorSave.set_volume(value)
 
 # Tamanho Tela
 # -----------------------------------------------------------------------------

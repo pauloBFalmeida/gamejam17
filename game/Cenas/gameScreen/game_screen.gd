@@ -17,12 +17,12 @@ var minigame_corrida : Corrida
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if event.keycode == KEY_A:
-			mostar_menu_config()
-		elif event.keycode == KEY_S:
+		if event.keycode == KEY_Q:
 			fechar_menu_config()
 			fechar_minigame_corrida()
-		elif event.keycode == KEY_Q:
+		elif event.keycode == KEY_A:
+			mostar_menu_config()
+		elif event.keycode == KEY_S:
 			mostar_minigame_corrida()
 		
 		elif event.keycode == KEY_G:

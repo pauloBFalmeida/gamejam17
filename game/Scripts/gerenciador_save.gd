@@ -107,3 +107,7 @@ func set_tamanho_tela(tamanho: Vector2i) -> void:
 	_set_config(ConfigType.SIZE_TELA, tamanho)
 	DisplayServer.window_set_size(tamanho)
 	salvar()
+
+func set_volume(volume: float) -> void:
+	_set_config(ConfigType.VOL_MUSICA, volume)
+	salvar()
