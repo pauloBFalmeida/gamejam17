@@ -21,24 +21,33 @@ func _input(event: InputEvent) -> void:
 			fechar_menu_config()
 		
 		elif event.keycode == KEY_G:
-			var _tween := _transicao()
-			if _tween: _tween.finished.connect(func(): game.comodo.trocar_comodo(Comodo.Local.SALA))
-
+			ir_sala()
 		elif event.keycode == KEY_H:
-			var _tween := _transicao()
-			if _tween: _tween.finished.connect(func(): game.comodo.trocar_comodo(Comodo.Local.BANHEIRO))
+			ir_banheiro()
 
+# Trocar Comodo
+# -----------------------------------------------------------------------------
+func ir_sala() -> void:
+	var _tween := _transicao()
+	if _tween: _tween.finished.connect(func(): game.comodo.trocar_comodo(Comodo.Local.SALA))
+
+func ir_banheiro() -> void:
+	var _tween := _transicao()
+	if _tween: _tween.finished.connect(func(): game.comodo.trocar_comodo(Comodo.Local.BANHEIRO))
+
+# Menu Config
+# -----------------------------------------------------------------------------
 
 func mostar_menu_config() -> void:
-		menus.hide()
-		var _tween := _transicao()
-		if _tween: _tween.finished.connect(
-			func(): 
-				menu_config = MENU_CONFIG.instantiate()
-				menus.add_child(menu_config)
-				menus.show()
-				menu_config.abrir()
-		)
+	menus.hide()
+	var _tween := _transicao()
+	if _tween: _tween.finished.connect(
+		func(): 
+			menu_config = MENU_CONFIG.instantiate()
+			menus.add_child(menu_config)
+			menus.show()
+			menu_config.abrir()
+	)
 
 func fechar_menu_config() -> void:
 	var _tween := _transicao()
@@ -47,6 +56,13 @@ func fechar_menu_config() -> void:
 			menus.hide()
 			menu_config.queue_free()
 	)
+
+# Mini Game
+# -----------------------------------------------------------------------------
+
+
+# Transicao
+# -----------------------------------------------------------------------------
 
 func _transicao() -> Tween:
 	if transition.visible: return null
