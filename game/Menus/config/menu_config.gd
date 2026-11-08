@@ -37,6 +37,10 @@ var curr_idx_config := 0
 const duracao_tween := 1.2
 const distancia_y_tween := 120
 
+func abrir() -> void:
+	curr_idx_config = 0
+	_update_opcao(false)
+
 func _on_button_up_pressed() -> void:
 	curr_idx_config -= 1
 	_update_opcao(true)

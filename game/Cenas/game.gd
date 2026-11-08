@@ -1,3 +1,4 @@
+class_name Game
 extends Node
 
 @onready var sistema_click: SistemaClick3D = $SistemaClick

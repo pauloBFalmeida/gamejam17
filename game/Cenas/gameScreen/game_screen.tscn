@@ -39,6 +39,7 @@ render_target_update_mode = 4
 layout_mode = 1
 
 [node name="Menus" type="Control" parent="." unique_id=844506328]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,4 +48,5 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MenuConfig" parent="Menus" unique_id=45229521 instance=ExtResource("3_shyqf")]
+visible = false
 layout_mode = 1
