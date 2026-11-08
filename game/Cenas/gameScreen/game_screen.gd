@@ -28,6 +28,7 @@ var sala_atual := Sala.SALA_ESTAR
 var menu_config : MenuConfig
 var minigame_corrida : Corrida
 
+# TODO: TIRAR
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.keycode == KEY_Q:

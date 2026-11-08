@@ -24,6 +24,7 @@ enum Status {
 	MAX = 3,
 }
 
+# TODO: TIRAR
 ## Qnt perde por minuto
 #@export var taxa_perda_valor_moods : Dictionary[Mood, float] = {
 	#GerenciadorMood.Mood.FELICIDADE: 	40.0,
