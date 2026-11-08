@@ -21,6 +21,8 @@ func _ready() -> void:
 	GerenciadorMood.updated_mood.connect(set_mood)
 	
 	for _mood in GerenciadorMood.Mood.values():
+		if _mood == GerenciadorMood.Mood.FOBIA:
+			set_fobia()
 		set_mood(_mood, GerenciadorMood.get_status_mood(_mood))
 
 func set_mood(_mood: GerenciadorMood.Mood, valor: int) -> void:
@@ -28,3 +30,13 @@ func set_mood(_mood: GerenciadorMood.Mood, valor: int) -> void:
 	var tex : Texture = img_res.get_img(valor)
 	var icon := icon_por_mood[_mood]
 	icon.texture = tex
+
+func set_fobia() -> void:
+	var _mood := GerenciadorMood.Mood.FOBIA
+	var valor := GerenciadorMood.get_status_mood(_mood)
+	var icon := icon_por_mood[_mood]
+	if valor < 30:
+		icon.show()
+	else:
+		icon.hide()
+	

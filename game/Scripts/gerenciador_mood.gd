@@ -29,9 +29,11 @@ enum Status {
 	GerenciadorMood.Mood.FELICIDADE: 	40.0,
 	GerenciadorMood.Mood.MENTAL:  		25.0,
 	GerenciadorMood.Mood.FOBIA: 		10.0,
-	GerenciadorMood.Mood.COMIDA:  		50.0,
+	GerenciadorMood.Mood.COMIDA:  		40.0,
 	GerenciadorMood.Mood.LIMPEZA:  		30.0,
 }
+
+# -----------------------------------------------------------------------------
 
 ## valor atual dos moods
 var _valor_moods : Dictionary[Mood, float] = {
@@ -44,8 +46,36 @@ var _valor_moods : Dictionary[Mood, float] = {
 
 var pausado : bool = false
 
-func _abaixar_moods() -> void:
-	pass
+var tem_fobia_atencao := false
+var tem_fobia_sujeira := false
+
+var contador_atencao := 1
+var contador_sujeira := 1
+
+## Descrece mais rapido cada vez nessa porcent
+## [br] multiplicador_fobia ** contador_fobia
+const multiplicador_fobia := 1.2
+
+func _physics_process(delta: float) -> void:
+	if pausado : return
+	
+	_abaixar_moods(delta)
+
+func _abaixar_moods(seg:float) -> void:
+	for _mood in Mood.values():
+		var taxa_perda := taxa_perda_valor_moods[_mood] * seg / 60
+		# se for o mental e tiver fobia de atencao
+		if _mood == Mood.MENTAL and tem_fobia_atencao:
+			taxa_perda = taxa_perda * (multiplicador_fobia ** contador_atencao)
+		elif _mood == Mood.LIMPEZA and tem_fobia_sujeira:
+			taxa_perda = taxa_perda * (multiplicador_fobia ** contador_sujeira)
+			
+		_valor_moods[_mood] -= taxa_perda
+
+func dar_atencao() -> void:
+	contador_atencao += 1
+func dar_limpeza() -> void:
+	contador_sujeira += 1
 
 func get_status_mood(_mood: Mood) -> int:
 	var valor := _valor_moods[_mood]

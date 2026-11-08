@@ -135,6 +135,7 @@ theme_override_font_sizes/font_size = 25
 text = "Ajustar Tamanho"
 
 [node name="Volume" type="VBoxContainer" parent="ConfigContainer" unique_id=136831233]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
