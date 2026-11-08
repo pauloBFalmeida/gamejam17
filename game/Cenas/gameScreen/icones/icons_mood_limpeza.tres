@@ -1,7 +1,13 @@
 [gd_resource type="Resource" script_class="ImgsMoodRes" format=3 uid="uid://b15yv6v2m83ps"]
 
 [ext_resource type="Script" uid="uid://cmurxqduqgi1a" path="res://Cenas/gameScreen/icones/imgs_mood_res.gd" id="1_bo57p"]
+[ext_resource type="Texture2D" uid="uid://cvw6nsdfylmam" path="res://Assets/icones/indicadores/banho cheio.png" id="1_bqb5h"]
+[ext_resource type="Texture2D" uid="uid://c6sp6fvnm3s7" path="res://Assets/icones/indicadores/banho half.png" id="2_rkr0j"]
+[ext_resource type="Texture2D" uid="uid://cm5ysw37palwq" path="res://Assets/icones/indicadores/banho vazia.png" id="3_xlbts"]
 
 [resource]
 script = ExtResource("1_bo57p")
+img_min = ExtResource("3_xlbts")
+img_mid = ExtResource("2_rkr0j")
+img_max = ExtResource("1_bqb5h")
 metadata/_custom_type_script = "uid://cmurxqduqgi1a"

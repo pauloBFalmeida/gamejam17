@@ -1,6 +1,6 @@
 ## Gerenciador Mood
 ## [br]
-## Valor: [br] 
+## Valor: (Status) [br] 
 ## 1 - min [br]
 ## 2 - mid [br]
 ## 3 - max [br]
@@ -16,6 +16,12 @@ enum Mood {
 	LIMPEZA,
 	MENTAL,
 	FOBIA,
+}
+
+enum Status {
+	MIN = 1,
+	MID = 2,
+	MAX = 3,
 }
 
 ## Qnt perde por minuto
@@ -38,3 +44,11 @@ var _valor_moods : Dictionary[GerenciadorMood.Mood, float] = {
 
 func _abaixar_moods() -> void:
 	pass
+
+func get_status_mood(_mood: GerenciadorMood.Mood) -> int:
+	var valor := _valor_moods[_mood]
+	if valor > 60.0:
+		return Status.MAX
+	elif valor > 30.0:
+		return Status.MID
+	return Status.MIN

@@ -1,7 +1,13 @@
 [gd_resource type="Resource" script_class="ImgsMoodRes" format=3 uid="uid://cup72km5uarck"]
 
+[ext_resource type="Texture2D" uid="uid://gleejvkanp7d" path="res://Assets/icones/indicadores/saude mental cheia.png" id="1_6otrn"]
 [ext_resource type="Script" uid="uid://cmurxqduqgi1a" path="res://Cenas/gameScreen/icones/imgs_mood_res.gd" id="1_vo68p"]
+[ext_resource type="Texture2D" uid="uid://cj1pq042moa3d" path="res://Assets/icones/indicadores/saude mental half.png" id="2_y1emw"]
+[ext_resource type="Texture2D" uid="uid://bprfadgoev5c1" path="res://Assets/icones/indicadores/saude mental vazia.png" id="3_hrxqk"]
 
 [resource]
 script = ExtResource("1_vo68p")
+img_min = ExtResource("3_hrxqk")
+img_mid = ExtResource("2_y1emw")
+img_max = ExtResource("1_6otrn")
 metadata/_custom_type_script = "uid://cmurxqduqgi1a"

@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cr1jf80amedlg"]
 
 [ext_resource type="Script" uid="uid://d1ploql5fouki" path="res://Cenas/gameScreen/icones/icones.gd" id="1_n7r4h"]
-[ext_resource type="Texture2D" uid="uid://bk7y6dsbsw7uw" path="res://Assets/emotes/amarelo_bravo_indignado .png" id="2_f57n4"]
-[ext_resource type="Texture2D" uid="uid://ce4kkh8p5iwxr" path="res://Assets/emotes/amarelo_cansado.png" id="3_hbppu"]
-[ext_resource type="Texture2D" uid="uid://bo10hn75fwgfa" path="res://Assets/emotes/azul_doente.png" id="4_owkan"]
-[ext_resource type="Texture2D" uid="uid://vnb084s3i6ak" path="res://Assets/emotes/emoti duvidando.png" id="5_ooffg"]
+[ext_resource type="Texture2D" uid="uid://c6smwt4111d5g" path="res://Assets/icones/indicadores/felicidade half.png" id="2_f57n4"]
+[ext_resource type="Texture2D" uid="uid://cj1pq042moa3d" path="res://Assets/icones/indicadores/saude mental half.png" id="3_f57n4"]
+[ext_resource type="Texture2D" uid="uid://binc5bb38jd5p" path="res://Assets/icones/coco.png" id="4_hbppu"]
+[ext_resource type="Texture2D" uid="uid://xashh4avsf1k" path="res://Assets/icones/indicadores/fome half.png" id="5_owkan"]
+[ext_resource type="Texture2D" uid="uid://c6sp6fvnm3s7" path="res://Assets/icones/indicadores/banho half.png" id="6_ooffg"]
 
 [node name="IconesUI" type="Control" unique_id=413392522]
 layout_mode = 3
@@ -30,7 +31,8 @@ theme_override_constants/margin_right = 30
 texture_filter = 1
 layout_mode = 2
 
-[node name="Icon1" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1824002014]
+[node name="IconFelicidade" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1824002014]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_f57n4")
 expand_mode = 3
@@ -39,34 +41,38 @@ expand_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Icon2" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1440375725]
+[node name="IconMental" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1440375725]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("3_hbppu")
+texture = ExtResource("3_f57n4")
 expand_mode = 3
 
 [node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1081534956]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Icon3" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1325881581]
+[node name="IconFobia" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1325881581]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("4_owkan")
+texture = ExtResource("4_hbppu")
 expand_mode = 3
 
 [node name="Spacer3" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1707498683]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Icon4" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1916402426]
+[node name="IconComida" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1916402426]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("5_ooffg")
+texture = ExtResource("5_owkan")
 expand_mode = 3
 
 [node name="Spacer4" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1098664726]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Icon5" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1590132004]
+[node name="IconLimpeza" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1590132004]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("5_ooffg")
+texture = ExtResource("6_ooffg")
 expand_mode = 3

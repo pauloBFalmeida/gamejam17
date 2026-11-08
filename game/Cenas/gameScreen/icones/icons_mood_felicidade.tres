@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ImgsMoodRes" format=3 uid="uid://dp75t3gbjdftd"]
 
 [ext_resource type="Script" uid="uid://cmurxqduqgi1a" path="res://Cenas/gameScreen/icones/imgs_mood_res.gd" id="1_ce4k4"]
-[ext_resource type="Texture2D" uid="uid://c41osrhhhcwhr" path="res://Assets/emotes/emoti um olho so.png" id="1_fcdph"]
-[ext_resource type="Texture2D" uid="uid://c4djden5gli7n" path="res://Assets/emotes/emoti triste.png" id="2_ufgqw"]
-[ext_resource type="Texture2D" uid="uid://bo8nrgb4rxwt4" path="res://Assets/emotes/emoti timido.png" id="3_1ml3d"]
+[ext_resource type="Texture2D" uid="uid://dkuq850fxriy1" path="res://Assets/icones/indicadores/felicidade cheia.png" id="1_fcdph"]
+[ext_resource type="Texture2D" uid="uid://c6smwt4111d5g" path="res://Assets/icones/indicadores/felicidade half.png" id="2_ufgqw"]
+[ext_resource type="Texture2D" uid="uid://kcd416v4qwgx" path="res://Assets/icones/indicadores/felicidade vazia.png" id="3_1ml3d"]
 
 [resource]
 script = ExtResource("1_ce4k4")
