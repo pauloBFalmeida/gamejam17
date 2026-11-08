@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://ml5fgw7dur2r"]
+
+[ext_resource type="Script" uid="uid://pla0xdwf87t6" path="res://Menus/person/menu_person.gd" id="1_w3612"]
+[ext_resource type="Texture2D" uid="uid://bddpgu4s5mvoo" path="res://Assets/ui/setas/64_setaR.png" id="2_qpile"]
+[ext_resource type="Texture2D" uid="uid://kp8yu3enbbko" path="res://Assets/ui/setas/64_setaL.png" id="3_q8k8i"]
+[ext_resource type="Texture2D" uid="uid://dgeoja7h5ioqj" path="res://Assets/personagens/abandono/abandono_neutro.png" id="4_nwu52"]
+[ext_resource type="Theme" uid="uid://b4g3ipl0t6uvy" path="res://Menus/theme_mine_text.tres" id="6_2awrh"]
+
+[node name="MenuPerson" type="Control" unique_id=45229521]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w3612")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1110988991]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.60533875, 0.4493068, 0.5568937, 1)
+
+[node name="ConfigContainer" type="Control" parent="." unique_id=514642561]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = 129.0
+offset_right = -63.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ConfigContainer" unique_id=827840521]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_nwu52")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ConfigContainer" unique_id=1780598602]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = 51.0
+offset_right = 89.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_2awrh")
+text = "Possui:
+Fobia Social"
+
+[node name="Button" type="Button" parent="ConfigContainer/Label" unique_id=2051360245]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = 15.0
+offset_right = 75.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("6_2awrh")
+text = "Escolher"
+
+[node name="ButtonUp" type="Button" parent="ConfigContainer" unique_id=1361961490]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -36.0
+offset_right = -25.0
+offset_bottom = 36.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+icon = ExtResource("2_qpile")
+flat = true
+
+[node name="ButtonDown" type="Button" parent="ConfigContainer" unique_id=955636371]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -36.0
+offset_right = 142.0
+offset_bottom = 36.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+icon = ExtResource("3_q8k8i")
+flat = true
+
+[connection signal="pressed" from="ConfigContainer/Label/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ConfigContainer/ButtonUp" to="." method="_on_button_up_pressed"]
+[connection signal="pressed" from="ConfigContainer/ButtonDown" to="." method="_on_button_down_pressed"]

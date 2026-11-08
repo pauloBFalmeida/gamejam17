@@ -37,11 +37,11 @@ func click() -> void:
 	# emite a posicao do clique
 	clicou.emit(posicao_3d_click)
 	
-	if sphere: sphere.free()
-	sphere = CSGSphere3D.new()
-	sphere.radius = 0.1
-	add_child(sphere)
-	sphere.global_position = posicao_3d_click
+	#if sphere: sphere.free()
+	#sphere = CSGSphere3D.new()
+	#sphere.radius = 0.1
+	#add_child(sphere)
+	#sphere.global_position = posicao_3d_click
 
 ## Retorna a posicao do mouse no mundo 3D
 func posicao_mouse_3d() -> Vector3:

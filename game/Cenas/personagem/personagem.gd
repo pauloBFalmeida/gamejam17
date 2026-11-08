@@ -1,6 +1,8 @@
 class_name Personagem
 extends CharacterBody3D
 
+signal morto
+
 const TOMBSTONE = preload("uid://yvmntp4pm3hy")
 
 @onready var sprite_3d: Sprite3D = %Sprite3D
@@ -14,7 +16,18 @@ const TOMBSTONE = preload("uid://yvmntp4pm3hy")
 var vivo := true
 var posicao_inicial : Vector3
 
+const ABANDONO_NEUTRO = preload("uid://dgeoja7h5ioqj")
+const LIMPEZA_NEUTRO = preload("uid://bpwhhid57tno6")
+
+func _escolher_personagem() -> void:
+	sprite_3d.show()
+	sprite_3d.texture = ABANDONO_NEUTRO if GerenciadorMood.personagem_fobia == GerenciadorMood.Fobia.Abandono else LIMPEZA_NEUTRO
+
 func _ready() -> void:
+	GerenciadorMood.updated_personagem.connect(_escolher_personagem)
+	if GerenciadorMood.personagem_fobia == GerenciadorMood.Fobia.NONE:
+		sprite_3d.hide()
+	
 	sprite_3d_item.hide()
 	get_tree().create_timer(1.0).timeout.connect(func(): posicao_inicial = position)
 	GerenciadorGrana.personagem = self
@@ -44,9 +57,13 @@ func dar_item(item: GerenciadorGrana.Item) -> void:
 			sprite_3d_item.hide()
 	)
 
+
 func morrer() -> void:
 	vivo = false
 	position = posicao_inicial
 	sprite_3d.texture = TOMBSTONE
 	sprite_3d.position.y += -0.2
+	
+	morto.emit()
+	
 	process_mode = Node.PROCESS_MODE_DISABLED

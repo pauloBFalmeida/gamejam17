@@ -12,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x4uh1")
+duracao_transicao = null
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1060534136]
 custom_minimum_size = Vector2(320, 320)

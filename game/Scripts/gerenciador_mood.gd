@@ -9,6 +9,7 @@
 extends Node
 
 signal updated_mood(mood: Mood, valor: int)
+signal updated_personagem
 
 enum Mood {
 	FELICIDADE,
@@ -23,6 +24,12 @@ enum Status {
 	MID = 2,
 	MAX = 3,
 }
+
+enum Fobia { Limpeza, Abandono, NONE}
+var personagem_fobia := Fobia.NONE :
+	set(_fobia):
+		personagem_fobia = _fobia
+		updated_personagem.emit()
 
 # TODO: TROCAR
 ## Qnt perde por minuto

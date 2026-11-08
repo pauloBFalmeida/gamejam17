@@ -5,8 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://djpodvw1lhti8" path="res://Assets/ui/tela tamagochi.png" id="3_umrpu"]
 [ext_resource type="Script" uid="uid://qxgpr8vpiyfc" path="res://Scripts/button_mover_janela.gd" id="4_umrpu"]
 
-[node name="MainGame" type="Node" unique_id=610779202]
+[node name="MainGame" type="Node" unique_id=610779202 node_paths=PackedStringArray("game_screen", "color_rect_balck")]
 script = ExtResource("1_np80u")
+game_screen = NodePath("PivotGameScreen/GameScreen")
+color_rect_balck = NodePath("")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=156811594]
 z_index = 20
@@ -45,6 +47,7 @@ offset_right = 474.0
 offset_bottom = 409.36884
 grow_horizontal = 1
 grow_vertical = 1
+duracao_transicao = 1.2
 
 [node name="ButtonMoverJanela" type="Button" parent="." unique_id=831590542]
 self_modulate = Color(1, 1, 1, 0)

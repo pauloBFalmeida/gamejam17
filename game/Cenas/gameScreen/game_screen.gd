@@ -3,8 +3,9 @@ extends Control
 
 enum Tela {
 	GAME,
-	MENU_CONFIG,
+	MENU_CONFIGS,
 	MINIGAME_CORRIDA,
+	MENU_PERSONAGEM
 }
 enum Sala {
 	SALA_ESTAR,
@@ -22,22 +23,16 @@ enum Sala {
 const MENU_CONFIG = preload("uid://cmt0o3s58ai60")
 const CORRIDA = preload("uid://bvh3yenoa4ufj")
 const WINDOW_OPCOES = preload("uid://wdl2378mtpea")
+const MENU_PERSON = preload("uid://ml5fgw7dur2r")
 
 var tela_atual := Tela.GAME
 var sala_atual := Sala.SALA_ESTAR
 
 var menu_config : MenuConfig
 var minigame_corrida : Corrida
+var menu_person : MenuPerson
 
 # TODO: TIRAR
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.keycode == KEY_Q:
-			trocar_tela(Tela.GAME)
-		#elif event.keycode == KEY_A:
-			#trocar_tela(Tela.MENU_CONFIG)
-		elif event.keycode == KEY_S:
-			trocar_tela(Tela.MINIGAME_CORRIDA)
 
 func _ready() -> void:
 	menus.hide()
@@ -67,12 +62,13 @@ func _trocar_tela(_tela: Tela) -> void:
 	game.pausar()
 	if is_instance_valid(minigame_corrida): 	minigame_corrida.queue_free()
 	if is_instance_valid(menu_config): 			menu_config.queue_free()
+	if is_instance_valid(menu_person): 			menu_person.queue_free()
 	
 	match _tela:
 		Tela.GAME:
 			menus.hide()
 			game.despausar()
-		Tela.MENU_CONFIG:
+		Tela.MENU_CONFIGS:
 			menu_config = MENU_CONFIG.instantiate()
 			menus.add_child(menu_config)
 			menus.show()
@@ -81,6 +77,12 @@ func _trocar_tela(_tela: Tela) -> void:
 			minigame_corrida = CORRIDA.instantiate()
 			menus.add_child(minigame_corrida)
 			menus.show()
+		Tela.MENU_PERSONAGEM:
+			menu_person = MENU_PERSON.instantiate()
+			menu_person.game_screen = self
+			menus.add_child(menu_person)
+			menus.show()
+			menu_person.abrir()
 
 # Transicao
 # -----------------------------------------------------------------------------
@@ -129,10 +131,10 @@ func _on_button_diabo_pressed() -> void:
 
 
 func _on_button_config_pressed() -> void:
-	if tela_atual == Tela.MENU_CONFIG:
+	if tela_atual == Tela.MENU_CONFIGS:
 		trocar_tela(Tela.GAME)
 	else:
-		trocar_tela(Tela.MENU_CONFIG)
+		trocar_tela(Tela.MENU_CONFIGS)
 
 func _on_button_comodo_pressed() -> void:
 	if tela_atual != Tela.GAME: return

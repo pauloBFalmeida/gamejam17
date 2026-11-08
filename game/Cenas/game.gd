@@ -11,6 +11,33 @@ extends Node
 ## [br] Serve para pausar a musica tbm
 var pausado := false
 
+
+func _ready() -> void:
+	personagem.morto.connect(_morrer)
+	
+	sistema_click.clicou.connect(
+		func(global_pos: Vector3):
+			personagem.andar_para(global_pos)
+	)
+	
+
+func pausar() -> void:
+	pausado = true
+	audio_stream_player.stream_paused = true
+	GerenciadorMood.set_pausar(true)
+
+func despausar() -> void:
+	pausado = true
+	audio_stream_player.stream_paused = false
+	GerenciadorMood.set_pausar(false)
+	
+
+
+# -----------------------
+
+func _morrer() ->void:
+	criar_arquivo()
+
 const nome_mes : Dictionary[int, String] = {
 	1: "Janeiro",
 	2: "Fevereiro",
@@ -26,20 +53,13 @@ const nome_mes : Dictionary[int, String] = {
 	12: "Dezembro",
 }
 
-func _ready() -> void:
-	sistema_click.clicou.connect(
-		func(global_pos: Vector3):
-			personagem.andar_para(global_pos)
-	)
-	
+func criar_arquivo() -> void:
 	var username : String
 	if OS.has_environment("USERNAME"):
 		username = OS.get_environment("USERNAME")
 	else:
 		username = "Player"
-	
-	print("SEU NOME: ", username)
-	
+		
 	var data_hoje := Time.get_datetime_dict_from_unix_time(Time.get_unix_time_from_system())
 	var dia : int = data_hoje["day"]
 	var mes : String = nome_mes[data_hoje["month"]]
@@ -49,14 +69,3 @@ func _ready() -> void:
 	var path_file := path_desktop + "/%s.txt" % ["CARTA_PARA_VOCE"]
 	var file = FileAccess.open(path_file, FileAccess.WRITE)
 	file.store_string("Dia %d de %s de %d.\nIsso que aconteceu foi sua culpa %s, lembre-se disso" % [dia,mes,ano,username])
-
-func pausar() -> void:
-	pausado = true
-	audio_stream_player.stream_paused = true
-	GerenciadorMood.set_pausar(true)
-
-func despausar() -> void:
-	pausado = true
-	audio_stream_player.stream_paused = false
-	GerenciadorMood.set_pausar(false)
-	
