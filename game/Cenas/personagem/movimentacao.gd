@@ -10,7 +10,9 @@ class_name MovimentacaoPersonagem
 
 @export var pulinho_sombra_min_scale := 0.45
 
-const min_x_direcao := 0.6
+@export var deve_rotacionar : bool = false
+
+const min_x_direcao := 0.75
 const rotacao_duracao := 1.2 ## em seg
 
 @export var img_pivot: Node3D
@@ -29,7 +31,7 @@ var tween_pulinhos_sombra : Tween
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
-		comecar_pulinhos()
+		deve_rotacionar = not deve_rotacionar
 	
 	if event.is_action_pressed("ui_accept"):
 		var random_pos := Vector3.ZERO
@@ -45,14 +47,24 @@ func andar_para(global_pos: Vector3) -> void:
 	esta_andando = false 
 	
 	var direcao := get_direcao()
-	if direcao.x < -min_x_direcao:
-		rotacionar(true)
-		get_tree().create_timer(rotacao_duracao/2).timeout.connect(_comecar_andar)
-	elif direcao.x > min_x_direcao:
-		rotacionar(false)
-		get_tree().create_timer(rotacao_duracao/2).timeout.connect(_comecar_andar)
+	
+	if deve_rotacionar:
+		## se fez a rotacao, entao use o timer
+		var fez_rotacao: bool = false
+		# calcula a direcao da rotacao
+		if direcao.x < -min_x_direcao:
+			fez_rotacao = rotacionar(false)
+		elif direcao.x > min_x_direcao:
+			fez_rotacao = rotacionar(true)
+			
+		# se fez a rotacao, entao use o timer, se nao, apenas ande
+		if fez_rotacao:
+			get_tree().create_timer(rotacao_duracao/2).timeout.connect(_comecar_andar)
+		else:
+			_comecar_andar()
 	else:
 		_comecar_andar()
+		
 
 func _comecar_andar() -> void:
 	esta_andando = true
@@ -75,11 +87,12 @@ func get_direcao() -> Vector3:
 # Rotacao
 # -----------------------------------------------------------------------------
 
-func rotacionar(horario: bool = false) -> void:
-	if is_instance_valid(tween_rot) and tween_rot.is_running(): return
+## Retorna True se vai realizar o giro pro o personagem
+func rotacionar(horario: bool = false) -> bool:
+	if is_instance_valid(tween_rot) and tween_rot.is_running(): return false
 	
-	if horario and sprite_3d.flip_h: return
-	elif (not horario) and (not sprite_3d.flip_h): return
+	if horario and sprite_3d.flip_h: return false
+	elif (not horario) and (not sprite_3d.flip_h): return false
 	
 	tween_rot = create_tween()
 	tween_rot.set_ease(Tween.EASE_IN_OUT)
@@ -90,9 +103,13 @@ func rotacionar(horario: bool = false) -> void:
 		-PI if horario else PI,
 		rotacao_duracao
 	).from(0.0)
-	await tween_rot.finished
-	sprite_3d.flip_h = horario
-	sprite_3d.rotation.y = 0.0
+	tween_rot.finished.connect(
+		func():
+			sprite_3d.flip_h = horario
+			sprite_3d.rotation.y = 0.0
+	)
+	
+	return true # precisou girar o personagem
 
 # Pulinhos 
 # -----------------------------------------------------------------------------

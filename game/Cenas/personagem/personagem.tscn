@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b38om46bvne5q"]
 
 [ext_resource type="Script" uid="uid://ctdyax7wsncdt" path="res://Cenas/personagem/personagem.gd" id="1_en5i7"]
+[ext_resource type="Texture2D" uid="uid://dgeoja7h5ioqj" path="res://Assets/personagens/abandono/abandono_neutro.png" id="2_bkstj"]
 [ext_resource type="Script" uid="uid://dl7yimcvs33np" path="res://Cenas/personagem/movimentacao.gd" id="3_bkstj"]
-[ext_resource type="Texture2D" uid="uid://bpwhhid57tno6" path="res://Assets/personagens/limpeza/limpeza_neutro.png" id="3_g1udp"]
 [ext_resource type="Texture2D" uid="uid://bq82tp5bonuqr" path="res://Assets/outros/Black-Blur.png" id="3_upg41"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_smq05"]
@@ -29,7 +29,7 @@ texture = ExtResource("3_upg41")
 unique_name_in_owner = true
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.4986445, 0)
 texture_filter = 0
-texture = ExtResource("3_g1udp")
+texture = ExtResource("2_bkstj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=756358307]
 debug_use_custom = true
