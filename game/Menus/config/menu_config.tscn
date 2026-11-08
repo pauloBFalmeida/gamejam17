@@ -81,14 +81,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Ajustar Tamanho"
 
-[node name="Control" type="Control" parent="VBoxContainer" unique_id=240749716]
+[node name="Separador" type="Control" parent="VBoxContainer" unique_id=240749716]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=2068703635]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Volume Música"
+text = "Volume"
 horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1759823763]
@@ -102,7 +102,29 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 
+[node name="Separador2" type="Control" parent="VBoxContainer" unique_id=226516366]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1229204229]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Configurações Padrão"
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer" unique_id=1749905511]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="ButtonDefault" type="Button" parent="VBoxContainer/MarginContainer4" unique_id=1445485336]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.2904, 0.2904, 1)
+theme_override_font_sizes/font_size = 25
+text = "Voltar as Configurações Padrão"
+
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/ButtonScreenSizeL" to="." method="_on_button_screen_size_l_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/ButtonScreenSizeR" to="." method="_on_button_screen_size_r_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer3/ButtonAjustarTamanho" to="." method="_on_button_ajustar_tamanho_pressed"]
 [connection signal="value_changed" from="VBoxContainer/MarginContainer2/HSliderMusica" to="." method="_on_h_slider_musica_value_changed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer4/ButtonDefault" to="." method="_on_button_default_pressed"]

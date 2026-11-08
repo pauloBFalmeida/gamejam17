@@ -50,3 +50,4 @@ func _get_idx_tamanho_tela(tamanho: Vector2i) -> int:
 # -----------------------------------------------------------------------------
 func _on_button_default_pressed() -> void:
 	GerenciadorSave.set_default_values()
+	_update_values()
