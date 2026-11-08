@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="ImgsMoodRes" format=3 uid="uid://vjemhq4rmgeh"]
 
 [ext_resource type="Script" uid="uid://cmurxqduqgi1a" path="res://Cenas/gameScreen/icones/imgs_mood_res.gd" id="1_4cyjx"]
+[ext_resource type="Texture2D" uid="uid://bodc7tt131h3h" path="res://Assets/icones/indicadores/fobia.png" id="1_76gln"]
 
 [resource]
 script = ExtResource("1_4cyjx")
+img_min = ExtResource("1_76gln")
+img_mid = ExtResource("1_76gln")
+img_max = ExtResource("1_76gln")
 metadata/_custom_type_script = "uid://cmurxqduqgi1a"
