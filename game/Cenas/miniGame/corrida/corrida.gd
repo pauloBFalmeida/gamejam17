@@ -113,3 +113,11 @@ func _fim_corrida() -> void:
 	
 	end_screen.show()
 	
+
+
+func _on_button_repetir_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_button_voltar_pressed() -> void:
+	pass # Replace with function body.
