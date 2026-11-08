@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dgeoja7h5ioqj" path="res://Assets/personagens/abandono/abandono_neutro.png" id="2_bkstj"]
 [ext_resource type="Script" uid="uid://dl7yimcvs33np" path="res://Cenas/personagem/movimentacao.gd" id="3_bkstj"]
 [ext_resource type="Texture2D" uid="uid://bq82tp5bonuqr" path="res://Assets/outros/Black-Blur.png" id="3_upg41"]
+[ext_resource type="Texture2D" uid="uid://bo10hn75fwgfa" path="res://Assets/emotes/azul_doente.png" id="4_g1udp"]
+[ext_resource type="Script" uid="uid://kyh4cmtbp4xm" path="res://Cenas/personagem/vibe.gd" id="6_q6rpu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_smq05"]
 radius = 0.2
@@ -31,6 +33,12 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.4986445, 0)
 texture_filter = 0
 texture = ExtResource("2_bkstj")
 
+[node name="Sprite3DEmote" type="Sprite3D" parent="ImgPivot" unique_id=2119869154]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1846808, 0)
+texture_filter = 2
+texture = ExtResource("4_g1udp")
+
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=756358307]
 debug_use_custom = true
 debug_path_custom_color = Color(0.3529412, 1, 0.14509805, 1)
@@ -42,3 +50,7 @@ sombra_pivot = NodePath("../ImgPivotSombra")
 sprite_3d = NodePath("../ImgPivot/Sprite3D")
 navigation_agent_3d = NodePath("../NavigationAgent3D")
 personagem = NodePath("..")
+
+[node name="Vibe" type="Node" parent="." unique_id=1941946877 node_paths=PackedStringArray("sprite_3d_emote")]
+script = ExtResource("6_q6rpu")
+sprite_3d_emote = NodePath("../ImgPivot/Sprite3DEmote")

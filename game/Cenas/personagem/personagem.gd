@@ -5,6 +5,8 @@ extends CharacterBody3D
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var movimentacao: MovimentacaoPersonagem = $Movimentacao
 
+@onready var sprite_3d_emote: Sprite3D = %Sprite3DEmote
+
 func andar_para(global_pos: Vector3) -> void:
 	movimentacao.andar_para(global_pos)
 
