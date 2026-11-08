@@ -28,6 +28,7 @@ var esta_andando : bool = false
 var tween_rot : Tween
 var tween_pulinhos : Tween
 var tween_pulinhos_sombra : Tween
+var tween_pulinhos_squish : Tween
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
@@ -118,6 +119,7 @@ func comecar_pulinhos() -> void:
 	if tween_pulinhos:
 		tween_pulinhos.stop()
 		tween_pulinhos_sombra.stop()
+		tween_pulinhos_squish.stop()
 	
 	# -- sobe
 	tween_pulinhos = create_tween()
@@ -140,6 +142,9 @@ func comecar_pulinhos() -> void:
 		pulinho_freq
 	)
 	
+	tween_pulinhos_squish = create_tween()
+	tween_pulinhos_squish.set_ease(Tween.EASE_IN_OUT)
+	tween_pulinhos_squish.set_trans(Tween.TRANS_CUBIC)	
 	
 	# -- desce
 	tween_pulinhos.tween_property(
@@ -148,7 +153,6 @@ func comecar_pulinhos() -> void:
 		0.0,
 		pulinho_freq
 	).from(pulinho_altura)
-	tween_pulinhos.set_loops()
 	
 	tween_pulinhos_sombra.tween_property(
 		sombra_pivot,
@@ -157,14 +161,29 @@ func comecar_pulinhos() -> void:
 		pulinho_freq
 	)
 	
+	tween_pulinhos_squish.tween_property(
+		img_pivot, "rotation:z", PI/90, pulinho_freq
+	)
+	tween_pulinhos_squish.tween_property(
+		img_pivot, "rotation:z", 0, pulinho_freq
+	)
+	tween_pulinhos_squish.tween_property(
+		img_pivot, "rotation:z", -PI/90, pulinho_freq
+	)
+	tween_pulinhos_squish.tween_property(
+		img_pivot, "rotation:z", 0, pulinho_freq
+	)
+	
 	# -- Loops
 	tween_pulinhos.set_loops()
 	tween_pulinhos_sombra.set_loops()
+	tween_pulinhos_squish.set_loops()
 
 func parar_pulinhos() -> void:
 	if tween_pulinhos:
 		tween_pulinhos.stop()
 		tween_pulinhos_sombra.stop()
+		tween_pulinhos_squish.stop()
 	
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT)
@@ -177,3 +196,4 @@ func parar_pulinhos() -> void:
 	).from_current()
 	
 	sombra_pivot.scale = Vector3.ONE
+	img_pivot.rotation.z = 0.0
