@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://bvh3yenoa4ufj"]
+
+[ext_resource type="Texture2D" uid="uid://dgeoja7h5ioqj" path="res://Assets/personagens/abandono/abandono_neutro.png" id="1_2sdj3"]
+[ext_resource type="Script" uid="uid://dwju5j504olga" path="res://Cenas/miniGame/corrida/corrida.gd" id="1_lkbc5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u6ok8"]
+radius = 48.81228
+
+[node name="Corrida" type="Control" unique_id=1960193474]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lkbc5")
+
+[node name="ColorRectChao" type="ColorRect" parent="." unique_id=2822212]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3416, 0.61, 0.35949332, 1)
+
+[node name="ColorRectCeu" type="ColorRect" parent="." unique_id=2127641595]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.555, 0.71099997, 0.75, 1)
+
+[node name="Mundo" type="Node2D" parent="." unique_id=1823007523]
+
+[node name="PivotCharacter" type="Node2D" parent="Mundo" unique_id=1351713217]
+position = Vector2(117, 417)
+
+[node name="Character" type="Node2D" parent="Mundo/PivotCharacter" unique_id=1291563133]
+unique_name_in_owner = true
+
+[node name="AbandonoNeutro" type="Sprite2D" parent="Mundo/PivotCharacter/Character" unique_id=936882988]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_2sdj3")
+
+[node name="Area2D" type="Area2D" parent="Mundo/PivotCharacter/Character" unique_id=1864173573]
+position = Vector2(-1.2799988, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/PivotCharacter/Character/Area2D" unique_id=1249797074]
+position = Vector2(1.2799988, 21)
+shape = SubResource("CircleShape2D_u6ok8")
+debug_color = Color(0.5246081, 0.41819385, 1, 0.41960785)
+
+[node name="CocoSpawner" type="Node2D" parent="Mundo" unique_id=2063254987]
+unique_name_in_owner = true
+position = Vector2(783, 531)
+
+[node name="Area2Pontos" type="Area2D" parent="Mundo" unique_id=1283931489]
+position = Vector2(-62, 481)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Area2Pontos" unique_id=2054634091]
+position = Vector2(1.2799988, 21)
+shape = SubResource("CircleShape2D_u6ok8")
+debug_color = Color(0.645496, 0.5252746, 3.85046e-07, 0.41960785)
+
+[node name="ButtonClick" type="Button" parent="." unique_id=1178870671]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+
+[node name="LabelPontuacao" type="Label" parent="." unique_id=1096039429]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -84.0
+offset_top = 15.0
+offset_right = -33.0
+offset_bottom = 139.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.93, 0.71300006, 0, 1)
+theme_override_font_sizes/font_size = 90
+text = "0"
+horizontal_alignment = 2
+
+[node name="EndScreen" type="Control" parent="." unique_id=768850211]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="EndScreen" unique_id=33762757]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.55448, 0.38859996, 0.58, 1)
+
+[node name="Label" type="Label" parent="EndScreen" unique_id=1077269807]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -217.0
+offset_right = 70.5
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "Fim"
+
+[node name="Label2" type="Label" parent="EndScreen" unique_id=1938873464]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Sua Pontuação:"
+
+[node name="LabelPontos" type="Label" parent="EndScreen" unique_id=1332127057]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 61.0
+offset_right = 60.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "50"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Mundo/PivotCharacter/Character/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Mundo/Area2Pontos" to="." method="_on_area_2_pontos_body_entered"]
+[connection signal="pressed" from="ButtonClick" to="." method="_on_button_click_pressed"]

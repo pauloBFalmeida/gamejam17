@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://1b16bu51hxuy"]
+
+[ext_resource type="Script" uid="uid://cadu2i1lqga82" path="res://Cenas/miniGame/corrida/character_coco.gd" id="1_87u32"]
+[ext_resource type="Texture2D" uid="uid://binc5bb38jd5p" path="res://Assets/icones/coco.png" id="1_op3py"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smq05"]
+radius = 50.24938
+
+[node name="CharacterCoco" type="CharacterBody2D" unique_id=931081841]
+motion_mode = 1
+script = ExtResource("1_87u32")
+
+[node name="Coco" type="Sprite2D" parent="." unique_id=462439698]
+texture_filter = 1
+position = Vector2(0, -8)
+scale = Vector2(4, 4)
+texture = ExtResource("1_op3py")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=507176301]
+shape = SubResource("CircleShape2D_smq05")
+debug_color = Color(0.98535174, 0, 0.3392365, 0.41960785)
