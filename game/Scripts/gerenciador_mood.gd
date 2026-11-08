@@ -24,21 +24,21 @@ enum Status {
 	MAX = 3,
 }
 
-# TODO: TIRAR
+# TODO: TROCAR
 ## Qnt perde por minuto
 #@export var taxa_perda_valor_moods : Dictionary[Mood, float] = {
-	#GerenciadorMood.Mood.FELICIDADE: 	40.0,
-	#GerenciadorMood.Mood.MENTAL:  		25.0,
-	#GerenciadorMood.Mood.FOBIA: 		10.0,
-	#GerenciadorMood.Mood.COMIDA:  		30.0,
-	#GerenciadorMood.Mood.LIMPEZA:  	25.0,
+	#GerenciadorMood.Mood.FELICIDADE: 	40.0 / 2,
+	#GerenciadorMood.Mood.MENTAL:  		25.0 / 2,
+	#GerenciadorMood.Mood.FOBIA: 		10.0 / 2,
+	#GerenciadorMood.Mood.COMIDA:  		30.0 / 2,
+	#GerenciadorMood.Mood.LIMPEZA:  	25.0 / 2,
 #}
 @export var taxa_perda_valor_moods : Dictionary[Mood, float] = {
-	GerenciadorMood.Mood.FELICIDADE: 	80.0,
-	GerenciadorMood.Mood.MENTAL:  		50.0,
-	GerenciadorMood.Mood.FOBIA: 		20.0,
-	GerenciadorMood.Mood.COMIDA:  		60.0,
-	GerenciadorMood.Mood.LIMPEZA:  		50.0,
+	GerenciadorMood.Mood.FELICIDADE: 	40.0 * 2,
+	GerenciadorMood.Mood.MENTAL:  		25.0 * 2,
+	GerenciadorMood.Mood.FOBIA: 		10.0 * 2,
+	GerenciadorMood.Mood.COMIDA:  		30.0 * 2,
+	GerenciadorMood.Mood.LIMPEZA:  	25.0 * 2,
 }
 
 # -----------------------------------------------------------------------------
