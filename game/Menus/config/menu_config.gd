@@ -34,6 +34,9 @@ func _update_values() -> void:
 
 var curr_idx_config := 0
 
+const duracao_tween := 1.2
+const distancia_y_tween := 120
+
 func _on_button_up_pressed() -> void:
 	curr_idx_config -= 1
 	_update_opcao(true)
@@ -45,10 +48,46 @@ func _on_button_down_pressed() -> void:
 func _update_opcao(subindo: bool) -> void:
 	button_up.visible = curr_idx_config > 0
 	button_down.visible = curr_idx_config < opcoes_configs.size() -1
-		
-	for nodo in opcoes_configs: nodo.hide()
 	
-	opcoes_configs[curr_idx_config].show()
+	# animacao
+	
+	if subindo:
+		var atual : Control = opcoes_configs[curr_idx_config]
+		var tween_atual := create_tween()
+		tween_atual.set_ease(Tween.EASE_OUT)
+		tween_atual.set_trans(Tween.TRANS_CUBIC)
+		tween_atual.tween_property(atual, "position:y", 0, duracao_tween).from(-distancia_y_tween)
+		tween_atual.set_parallel()
+		tween_atual.tween_property(atual, "modulate:a", 1, duracao_tween).from(0)
+		atual.show()
+		
+		var anterior : Control = opcoes_configs[curr_idx_config + 1]
+		var tween_anterior := create_tween()
+		tween_anterior.set_ease(Tween.EASE_OUT)
+		tween_anterior.set_trans(Tween.TRANS_CUBIC)
+		tween_anterior.tween_property(anterior, "position:y", +distancia_y_tween, duracao_tween).from(0)
+		tween_anterior.set_parallel()
+		tween_anterior.tween_property(anterior, "modulate:a", 0, duracao_tween).from(1)
+		tween_anterior.finished.connect(func(): anterior.hide())
+	
+	else: # descendo
+		var atual : Control = opcoes_configs[curr_idx_config]
+		var tween_atual := create_tween()
+		tween_atual.set_ease(Tween.EASE_OUT)
+		tween_atual.set_trans(Tween.TRANS_CUBIC)
+		tween_atual.tween_property(atual, "position:y", 0, duracao_tween).from(distancia_y_tween)
+		tween_atual.set_parallel()
+		tween_atual.tween_property(atual, "modulate:a", 1, duracao_tween).from(0)
+		atual.show()
+		
+		var anterior : Control = opcoes_configs[curr_idx_config - 1]
+		var tween_anterior := create_tween()
+		tween_anterior.set_ease(Tween.EASE_OUT)
+		tween_anterior.set_trans(Tween.TRANS_CUBIC)
+		tween_anterior.tween_property(anterior, "position:y", -distancia_y_tween, duracao_tween).from(0)
+		tween_anterior.set_parallel()
+		tween_anterior.tween_property(anterior, "modulate:a", 0, duracao_tween).from(1)
+		tween_anterior.finished.connect(func(): anterior.hide())
 
 # Musica
 # -----------------------------------------------------------------------------
