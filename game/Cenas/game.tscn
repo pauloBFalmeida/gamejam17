@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://dtnro38uiujvs" path="res://Cenas/game.gd" id="1_pn5db"]
 [ext_resource type="Script" uid="uid://bbkfem7cwbd8a" path="res://Scripts/sistema_click_3d.gd" id="1_wm8yg"]
 [ext_resource type="PackedScene" uid="uid://cdlyk6k0egerw" path="res://Cenas/casa/comodo.tscn" id="3_pn5db"]
+[ext_resource type="AudioStream" uid="uid://l4fd5cbffujt" path="res://Assets/sons/game/queridoLar.wav" id="5_xqjki"]
+[ext_resource type="Script" uid="uid://dfektgi3rokb8" path="res://Scripts/audio.gd" id="6_ihbji"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_smq05"]
 vertices = PackedVector3Array(1.6187618, 0.099999964, -0.80128056, -1.5312383, 0.099999964, -0.80128056, -1.5312383, 0.099999964, 0.24871945, -0.7812382, 0.099999964, 1.5987195, 0.8687618, 0.099999964, 1.5987195, 1.6187618, 0.099999964, 0.09871948)
@@ -76,3 +78,8 @@ light_specular = 0.3
 light_bake_mode = 1
 shadow_enabled = true
 area_range = 8.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1252777092]
+stream = ExtResource("5_xqjki")
+autoplay = true
+script = ExtResource("6_ihbji")

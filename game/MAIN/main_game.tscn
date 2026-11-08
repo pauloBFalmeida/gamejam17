@@ -8,27 +8,6 @@
 [node name="MainGame" type="Node" unique_id=610779202]
 script = ExtResource("1_np80u")
 
-[node name="PivotGameScreen" type="Control" parent="." unique_id=1132242463]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 3
-anchors_preset = 0
-offset_left = 88.0
-offset_top = 121.0
-offset_right = 138.0
-offset_bottom = 171.0
-
-[node name="GameScreen" parent="PivotGameScreen" unique_id=728819084 instance=ExtResource("2_f4xj1")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -21.0
-offset_top = -5.0
-offset_right = 472.0
-offset_bottom = 409.36884
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="TextureRect" type="TextureRect" parent="." unique_id=156811594]
 z_index = 20
 texture_filter = 1
@@ -45,6 +24,27 @@ scale = Vector2(1.014167, 1.0438825)
 mouse_filter = 2
 texture = ExtResource("3_umrpu")
 expand_mode = 2
+
+[node name="PivotGameScreen" type="Control" parent="." unique_id=1132242463]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 88.0
+offset_top = 121.0
+offset_right = 138.0
+offset_bottom = 171.0
+
+[node name="GameScreen" parent="PivotGameScreen" unique_id=728819084 instance=ExtResource("2_f4xj1")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -21.0
+offset_top = -5.0
+offset_right = 474.0
+offset_bottom = 409.36884
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="ButtonMoverJanela" type="Button" parent="." unique_id=831590542]
 self_modulate = Color(1, 1, 1, 0)

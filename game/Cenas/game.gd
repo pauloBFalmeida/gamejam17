@@ -5,6 +5,12 @@ extends Node
 @onready var personagem: Personagem = $Mundo/Personagem
 @onready var comodo: Comodo = $Mundo/Comodo
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
+## Marca se esta pausado em um menu, ou mini games
+## [br] Serve para pausar a musica tbm
+var pausado := false
+
 const nome_mes : Dictionary[int, String] = {
 	1: "Janeiro",
 	2: "Fevereiro",
@@ -43,3 +49,14 @@ func _ready() -> void:
 	var path_file := path_desktop + "/%s.txt" % ["CARTA_PARA_VOCE"]
 	var file = FileAccess.open(path_file, FileAccess.WRITE)
 	file.store_string("Dia %d de %s de %d.\nIsso que aconteceu foi sua culpa %s, lembre-se disso" % [dia,mes,ano,username])
+
+func pausar() -> void:
+	pausado = true
+	audio_stream_player.stream_paused = true
+	GerenciadorMood.set_pausar(true)
+
+func despausar() -> void:
+	pausado = true
+	audio_stream_player.stream_paused = false
+	GerenciadorMood.set_pausar(false)
+	
