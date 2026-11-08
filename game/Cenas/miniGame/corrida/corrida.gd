@@ -6,6 +6,8 @@ const pulo_duracao_ar := 0.2
 
 const velocidade_acel := 1.15 
 
+@onready var personagem_sprite: Sprite2D = %PersonagemSprite
+
 @onready var character: Node2D = %Character
 @onready var coco_spawner: Node2D = %CocoSpawner
 
@@ -16,6 +18,9 @@ const velocidade_acel := 1.15
 
 const CHARACTER_COCO = preload("uid://1b16bu51hxuy")
 
+const ABANDONO_NEUTRO = preload("uid://dgeoja7h5ioqj")
+const LIMPEZA_NEUTRO = preload("uid://bpwhhid57tno6")
+
 var velocidade_atual := 1.0
 
 var pontos : int = 0
@@ -24,6 +29,11 @@ var no_chao := true
 var jogo_rolando := true
 
 func _ready() -> void:
+	if GerenciadorMood.personagem_fobia == GerenciadorMood.Fobia.Abandono:
+		personagem_sprite.texture = ABANDONO_NEUTRO
+	else:
+		personagem_sprite.texture = LIMPEZA_NEUTRO
+		
 	_timer_velocidade()
 	_timer_obstaculo()
 	end_screen.hide()

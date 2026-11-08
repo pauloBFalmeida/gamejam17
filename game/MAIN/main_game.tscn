@@ -5,10 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://djpodvw1lhti8" path="res://Assets/ui/tela tamagochi.png" id="3_umrpu"]
 [ext_resource type="Script" uid="uid://qxgpr8vpiyfc" path="res://Scripts/button_mover_janela.gd" id="4_umrpu"]
 
-[node name="MainGame" type="Node" unique_id=610779202 node_paths=PackedStringArray("game_screen", "color_rect_balck")]
+[node name="MainGame" type="Node" unique_id=610779202 node_paths=PackedStringArray("game_screen")]
 script = ExtResource("1_np80u")
 game_screen = NodePath("PivotGameScreen/GameScreen")
-color_rect_balck = NodePath("")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=156811594]
 z_index = 20
@@ -107,7 +106,7 @@ offset_right = 45.5
 offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Diabo"
+text = "Screepy"
 
 [connection signal="pressed" from="ButtonMoverJanela" to="ButtonMoverJanela" method="_on_pressed"]
 [connection signal="pressed" from="ButtonComodo" to="PivotGameScreen/GameScreen" method="_on_button_comodo_pressed"]

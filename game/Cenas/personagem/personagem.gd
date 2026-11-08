@@ -24,6 +24,7 @@ func _escolher_personagem() -> void:
 	sprite_3d.texture = ABANDONO_NEUTRO if GerenciadorMood.personagem_fobia == GerenciadorMood.Fobia.Abandono else LIMPEZA_NEUTRO
 
 func _ready() -> void:
+	GerenciadorMood.morrer.connect(morrer)
 	GerenciadorMood.updated_personagem.connect(_escolher_personagem)
 	if GerenciadorMood.personagem_fobia == GerenciadorMood.Fobia.NONE:
 		sprite_3d.hide()
@@ -43,7 +44,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func dar_item(item: GerenciadorGrana.Item) -> void:
-	print("ITEM")
 	sprite_3d_item.texture = GerenciadorGrana.get_texture(item)
 	sprite_3d_item.show()
 	var tween := create_tween()
@@ -56,6 +56,20 @@ func dar_item(item: GerenciadorGrana.Item) -> void:
 		func():
 			sprite_3d_item.hide()
 	)
+	
+	match item:
+		GerenciadorGrana.Item.ComidaPeixe:
+			GerenciadorMood.dar(GerenciadorMood.Mood.COMIDA, 30)
+		GerenciadorGrana.Item.ComidaHotdog:
+			GerenciadorMood.dar(GerenciadorMood.Mood.COMIDA, 30)
+		GerenciadorGrana.Item.ComidaMaca:
+			GerenciadorMood.dar(GerenciadorMood.Mood.COMIDA, 30)
+		GerenciadorGrana.Item.Presente:
+			GerenciadorMood.dar(GerenciadorMood.Mood.FELICIDADE, 30)
+		GerenciadorGrana.Item.Mao:
+			GerenciadorMood.dar(GerenciadorMood.Mood.MENTAL, 20)
+		GerenciadorGrana.Item.Sabao:
+			GerenciadorMood.dar(GerenciadorMood.Mood.LIMPEZA, 40)
 
 
 func morrer() -> void:

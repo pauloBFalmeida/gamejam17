@@ -66,7 +66,8 @@ position = Vector2(117, 417)
 [node name="Character" type="Node2D" parent="SubViewportContainer/SubViewport/Mundo/PivotCharacter" unique_id=1291563133]
 unique_name_in_owner = true
 
-[node name="AbandonoNeutro" type="Sprite2D" parent="SubViewportContainer/SubViewport/Mundo/PivotCharacter/Character" unique_id=936882988]
+[node name="PersonagemSprite" type="Sprite2D" parent="SubViewportContainer/SubViewport/Mundo/PivotCharacter/Character" unique_id=936882988]
+unique_name_in_owner = true
 z_index = 1
 texture_filter = 1
 scale = Vector2(4, 4)

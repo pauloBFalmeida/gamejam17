@@ -50,10 +50,26 @@ size_flags_vertical = 3
 [node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer" unique_id=737474359]
 layout_mode = 2
 theme = ExtResource("2_lrdmr")
+text = "Screepy"
+horizontal_alignment = 1
+
+[node name="ButtonLimopar" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=921527909]
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "Limpar"
+
+[node name="ButtonConversar" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=116950355]
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "Cutucar"
+
+[node name="Label6" type="Label" parent="Control/ScrollContainer/VBoxContainer" unique_id=775676918]
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
 text = "Mini Game"
 horizontal_alignment = 1
 
-[node name="ButtonMG" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=921527909]
+[node name="ButtonMG3" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1627480483]
 layout_mode = 2
 theme = ExtResource("2_lrdmr")
 text = "Jogar"
@@ -285,7 +301,9 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "15"
 
-[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonMG" to="." method="_on_button_mg_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonLimopar" to="." method="_on_button_limopar_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonConversar" to="." method="_on_button_conversar_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonMG3" to="." method="_on_button_mg_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonComida1" to="." method="_on_button_comida_1_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonComida2" to="." method="_on_button_comida_2_pressed"]
 [connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonComida3" to="." method="_on_button_comida_3_pressed"]

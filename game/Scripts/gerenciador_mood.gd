@@ -10,6 +10,7 @@ extends Node
 
 signal updated_mood(mood: Mood, valor: int)
 signal updated_personagem
+signal morrer
 
 enum Mood {
 	FELICIDADE,
@@ -33,20 +34,20 @@ var personagem_fobia := Fobia.NONE :
 
 # TODO: TROCAR
 ## Qnt perde por minuto
-#@export var taxa_perda_valor_moods : Dictionary[Mood, float] = {
-	#GerenciadorMood.Mood.FELICIDADE: 	40.0 / 2,
-	#GerenciadorMood.Mood.MENTAL:  		25.0 / 2,
-	#GerenciadorMood.Mood.FOBIA: 		10.0 / 2,
-	#GerenciadorMood.Mood.COMIDA:  		30.0 / 2,
-	#GerenciadorMood.Mood.LIMPEZA:  	25.0 / 2,
-#}
 @export var taxa_perda_valor_moods : Dictionary[Mood, float] = {
-	GerenciadorMood.Mood.FELICIDADE: 	40.0 * 2,
-	GerenciadorMood.Mood.MENTAL:  		25.0 * 2,
-	GerenciadorMood.Mood.FOBIA: 		10.0 * 2,
-	GerenciadorMood.Mood.COMIDA:  		30.0 * 2,
-	GerenciadorMood.Mood.LIMPEZA:  	25.0 * 2,
+	GerenciadorMood.Mood.FELICIDADE: 	40.0 / 2,
+	GerenciadorMood.Mood.MENTAL:  		25.0 / 2,
+	GerenciadorMood.Mood.FOBIA: 		10.0 / 2,
+	GerenciadorMood.Mood.COMIDA:  		30.0 / 2,
+	GerenciadorMood.Mood.LIMPEZA:  	25.0 / 2,
 }
+#@export var taxa_perda_valor_moods : Dictionary[Mood, float] = {
+	#GerenciadorMood.Mood.FELICIDADE: 	40.0 * 2,
+	#GerenciadorMood.Mood.MENTAL:  		25.0 * 2,
+	#GerenciadorMood.Mood.FOBIA: 		10.0 * 2,
+	#GerenciadorMood.Mood.COMIDA:  		30.0 * 2,
+	#GerenciadorMood.Mood.LIMPEZA:  	25.0 * 2,
+#}
 
 # -----------------------------------------------------------------------------
 
@@ -71,6 +72,14 @@ var contador_sujeira := 1
 ## [br] multiplicador_fobia ** contador_fobia
 const multiplicador_fobia := 1.2
 
+
+func dar(_m: Mood, _v: float) -> void:
+	_valor_moods[_m] = min(_valor_moods[_m] + _v, 100.0)
+	if _m == Mood.MENTAL: contador_atencao += 1
+	elif _m == Mood.LIMPEZA: contador_sujeira += 1
+	
+	_valor_moods[Mood.FOBIA] = min(_valor_moods[_m] + 10.0, 100.0)
+
 func _physics_process(delta: float) -> void:
 	if pausado : return
 	
@@ -93,6 +102,8 @@ func _abaixar_moods(seg:float) -> void:
 		_valor_moods[_mood] -= taxa_perda
 		_valor_moods[_mood] = max(0.0, _valor_moods[_mood])
 		
+		if _valor_moods[_mood] <= 2:
+			morrer.emit()
 		#if contador == 0:
 			#updated_mood.emit(_mood, _valor_moods[_mood])
 
