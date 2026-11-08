@@ -22,6 +22,7 @@ config/windows_native_icon="res://Assets/desktop.ico"
 
 GerenciadorSave="*uid://b8mla6nvcf8dm"
 GerenciadorMood="*uid://hnrhp6x4hb88"
+GerenciadorGrana="*uid://bqxk11ccil0xf"
 
 [display]
 

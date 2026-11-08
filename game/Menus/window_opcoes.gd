@@ -1,6 +1,8 @@
 extends Window
 class_name WindowOpcoes
 
+@onready var label_moedas: Label = %LabelMoedas
+
 func close() -> void:
 	queue_free()
 
@@ -10,3 +12,37 @@ func _ready() -> void:
 	size.y = jogo_size.y
 	position = get_parent().get_window().position
 	position.x -= jogo_size.x
+	
+	_update_dinheiro()
+
+func _update_dinheiro() -> void:
+	label_moedas.text = str(GerenciadorGrana.moedas)
+
+const custo_comida := 10
+
+func _on_button_comida_1_pressed() -> void:
+	if GerenciadorGrana.pode_comprar(custo_comida):
+		GerenciadorGrana.dar_item(GerenciadorGrana.Item.ComidaHotdog)
+	_update_dinheiro()
+
+func _on_button_comida_2_pressed() -> void:
+	if GerenciadorGrana.pode_comprar(custo_comida):
+		GerenciadorGrana.dar_item(GerenciadorGrana.Item.ComidaMaca)
+	_update_dinheiro()
+
+func _on_button_comida_3_pressed() -> void:
+	if GerenciadorGrana.pode_comprar(custo_comida):
+		GerenciadorGrana.dar_item(GerenciadorGrana.Item.ComidaPeixe)
+	_update_dinheiro()
+
+
+const custo_mimo := 15
+func _on_button_mimo_pressed() -> void:
+	if GerenciadorGrana.pode_comprar(custo_mimo):
+		GerenciadorGrana.dar_item(GerenciadorGrana.Item.Presente)
+	_update_dinheiro()
+
+
+func _on_button_mg_pressed() -> void:
+	GerenciadorGrana.game_screen.trocar_tela(GameScreen.Tela.MINIGAME_CORRIDA)
+	close()

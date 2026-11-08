@@ -41,6 +41,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	menus.hide()
+	GerenciadorGrana.game_screen = self
 
 # Trocar Comodo
 # -----------------------------------------------------------------------------

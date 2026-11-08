@@ -99,6 +99,8 @@ func _on_area_2_pontos_body_entered(_body: Node2D) -> void:
 # Fim Corrida
 # -----------------------------------------------------------------------------
 func _fim_corrida() -> void:
+	if not jogo_rolando: return
+	
 	jogo_rolando = false
 	
 	var tween := create_tween()
@@ -113,6 +115,7 @@ func _fim_corrida() -> void:
 	
 	end_screen.show()
 	
+	GerenciadorGrana.moedas += pontos
 
 
 func _on_button_repetir_pressed() -> void:
@@ -120,4 +123,4 @@ func _on_button_repetir_pressed() -> void:
 
 
 func _on_button_voltar_pressed() -> void:
-	pass # Replace with function body.
+	GerenciadorGrana.game_screen.trocar_tela(GameScreen.Tela.GAME)

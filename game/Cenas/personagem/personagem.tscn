@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dl7yimcvs33np" path="res://Cenas/personagem/movimentacao.gd" id="3_bkstj"]
 [ext_resource type="Texture2D" uid="uid://bq82tp5bonuqr" path="res://Assets/outros/Black-Blur.png" id="3_upg41"]
 [ext_resource type="Texture2D" uid="uid://bo10hn75fwgfa" path="res://Assets/emotes/azul_doente.png" id="4_g1udp"]
+[ext_resource type="Texture2D" uid="uid://dedoxfdocobkg" path="res://Assets/comidas/maca.png" id="5_jdch8"]
 [ext_resource type="Script" uid="uid://kyh4cmtbp4xm" path="res://Cenas/personagem/vibe.gd" id="6_q6rpu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_smq05"]
@@ -38,6 +39,12 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1846808, 0)
 texture_filter = 2
 texture = ExtResource("4_g1udp")
+
+[node name="Sprite3DItem" type="Sprite3D" parent="ImgPivot" unique_id=1978252410]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5094154, 0.0594932)
+texture_filter = 2
+texture = ExtResource("5_jdch8")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=756358307]
 debug_use_custom = true

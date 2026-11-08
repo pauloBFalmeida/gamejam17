@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://wdl2378mtpea"]
 
 [ext_resource type="Script" uid="uid://hydblj5sihac" path="res://Menus/window_opcoes.gd" id="1_amarg"]
+[ext_resource type="Theme" uid="uid://bnrr2tnlhiikf" path="res://Menus/theme_mine_title.tres" id="2_lrdmr"]
+[ext_resource type="Texture2D" uid="uid://cx8dbh2uyfu47" path="res://Assets/icones/coin.png" id="3_t50uq"]
+[ext_resource type="Texture2D" uid="uid://bv344y5r8qk5d" path="res://Assets/comidas/hotdog.png" id="4_01rej"]
+[ext_resource type="Texture2D" uid="uid://dedoxfdocobkg" path="res://Assets/comidas/maca.png" id="5_ipg0t"]
+[ext_resource type="Texture2D" uid="uid://dga6femiiv3e6" path="res://Assets/comidas/peixe.png" id="6_85pic"]
+[ext_resource type="Texture2D" uid="uid://lvv2ucvm3c4u" path="res://Assets/icones/gift.png" id="7_85pic"]
 
 [node name="Window" type="Window" unique_id=25588349]
 oversampling_override = 1.0
 title = "Screepy"
 position = Vector2i(0, 36)
-size = Vector2i(250, 640)
+size = Vector2i(250, 900)
+unresizable = true
+always_on_top = true
 script = ExtResource("1_amarg")
 
 [node name="Control" type="Control" parent="." unique_id=824036689]
@@ -25,3 +33,260 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.35, 0.38500005, 0.5, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control" unique_id=714030400]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer" unique_id=809922371]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Control/ScrollContainer/VBoxContainer" unique_id=737474359]
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "Mini Game"
+horizontal_alignment = 1
+
+[node name="ButtonMG" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=921527909]
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "Jogar"
+
+[node name="Spacer" type="Control" parent="Control/ScrollContainer/VBoxContainer" unique_id=1828331737]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/ScrollContainer/VBoxContainer" unique_id=1958280010]
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer/VBoxContainer" unique_id=1744153079]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1734443520]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_t50uq")
+expand_mode = 4
+
+[node name="LabelMoedas" type="Label" parent="Control/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=845901573]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "50"
+
+[node name="Label3" type="Label" parent="Control/ScrollContainer/VBoxContainer" unique_id=1979135116]
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "Comidas"
+horizontal_alignment = 1
+
+[node name="ButtonComida1" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=461416028]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "A"
+flat = true
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/ButtonComida1" unique_id=1048060411]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_01rej")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/ButtonComida1" unique_id=1263058186]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 124.0
+offset_right = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t50uq")
+stretch_mode = 5
+
+[node name="LabelValor" type="Label" parent="Control/ScrollContainer/VBoxContainer/ButtonComida1" unique_id=17690256]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -31.0
+offset_bottom = 31.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "10"
+
+[node name="ButtonComida2" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=1254425135]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "A"
+flat = true
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/ButtonComida2" unique_id=1346330351]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ipg0t")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/ButtonComida2" unique_id=1444764534]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 124.0
+offset_right = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t50uq")
+stretch_mode = 5
+
+[node name="LabelValor" type="Label" parent="Control/ScrollContainer/VBoxContainer/ButtonComida2" unique_id=368976956]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -31.0
+offset_bottom = 31.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "10"
+
+[node name="ButtonComida3" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=251534744]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "A"
+flat = true
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/ButtonComida3" unique_id=566436576]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_85pic")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/ButtonComida3" unique_id=632071130]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 124.0
+offset_right = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t50uq")
+stretch_mode = 5
+
+[node name="LabelValor" type="Label" parent="Control/ScrollContainer/VBoxContainer/ButtonComida3" unique_id=365955223]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -31.0
+offset_bottom = 31.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "10"
+
+[node name="Label4" type="Label" parent="Control/ScrollContainer/VBoxContainer" unique_id=473781573]
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "Mimos"
+horizontal_alignment = 1
+
+[node name="ButtonMimo" type="Button" parent="Control/ScrollContainer/VBoxContainer" unique_id=822589978]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme = ExtResource("2_lrdmr")
+text = "A"
+flat = true
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/ButtonMimo" unique_id=473001117]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_85pic")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ScrollContainer/VBoxContainer/ButtonMimo" unique_id=70932769]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 124.0
+offset_right = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t50uq")
+stretch_mode = 5
+
+[node name="LabelValor" type="Label" parent="Control/ScrollContainer/VBoxContainer/ButtonMimo" unique_id=1445085615]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -31.0
+offset_bottom = 31.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "15"
+
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonMG" to="." method="_on_button_mg_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonComida1" to="." method="_on_button_comida_1_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonComida2" to="." method="_on_button_comida_2_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonComida3" to="." method="_on_button_comida_3_pressed"]
+[connection signal="pressed" from="Control/ScrollContainer/VBoxContainer/ButtonMimo" to="." method="_on_button_mimo_pressed"]
