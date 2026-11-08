@@ -19,13 +19,20 @@ extends Control
 
 func _ready() -> void:
 	GerenciadorMood.updated_mood.connect(set_mood)
-	
+	_atualizar_moods()
+
+func _atualizar_moods() -> void:
 	for _mood in GerenciadorMood.Mood.values():
 		if _mood == GerenciadorMood.Mood.FOBIA:
 			set_fobia()
-		set_mood(_mood, GerenciadorMood.get_status_mood(_mood))
+		else:
+			set_mood(_mood, GerenciadorMood.get_status_mood(_mood))
 
 func set_mood(_mood: GerenciadorMood.Mood, valor: int) -> void:
+	if _mood == GerenciadorMood.Mood.FOBIA: 
+		set_fobia()
+		return
+	
 	var img_res : ImgsMoodRes = imgs_res_por_mood[_mood]
 	var tex : Texture = img_res.get_img(valor)
 	var icon := icon_por_mood[_mood]
@@ -35,8 +42,33 @@ func set_fobia() -> void:
 	var _mood := GerenciadorMood.Mood.FOBIA
 	var valor := GerenciadorMood.get_status_mood(_mood)
 	var icon := icon_por_mood[_mood]
-	if valor < 30:
+	if valor == 1:
 		icon.show()
 	else:
 		icon.hide()
-	
+
+var contador := 1
+func _physics_process(delta: float) -> void:
+	if contador > 5:
+		contador = 0
+		_atualizar_moods()
+	contador += 1
+
+var c : float = 0.0
+func _process(delta: float) -> void:
+	c += delta
+	if c > 10.0:
+		c = 0
+		
+		print(' -  - ')
+		var m = GerenciadorMood.Mood.FELICIDADE
+		print("FELICIDADE ", int(GerenciadorMood._valor_moods[m]) , " s:", GerenciadorMood.get_status_mood(m))
+		m = GerenciadorMood.Mood.MENTAL
+		print("MENTAL ", int(GerenciadorMood._valor_moods[m]) , " s:", GerenciadorMood.get_status_mood(m))
+		m = GerenciadorMood.Mood.FOBIA
+		print("FOBIA ", int(GerenciadorMood._valor_moods[m]) , " s:", GerenciadorMood.get_status_mood(m))
+		m = GerenciadorMood.Mood.COMIDA
+		print("COMIDA ", int(GerenciadorMood._valor_moods[m]) , " s:", GerenciadorMood.get_status_mood(m))
+		m = GerenciadorMood.Mood.LIMPEZA
+		print("LIMPEZA ", int(GerenciadorMood._valor_moods[m]) , " s:", GerenciadorMood.get_status_mood(m))
+		
