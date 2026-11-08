@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://b38om46bvne5q" path="res://Cenas/personagem/personagem.tscn" id="1_fd8wr"]
 [ext_resource type="Script" uid="uid://dtnro38uiujvs" path="res://Cenas/game.gd" id="1_pn5db"]
 [ext_resource type="Script" uid="uid://bbkfem7cwbd8a" path="res://Scripts/sistema_click_3d.gd" id="1_wm8yg"]
-[ext_resource type="PackedScene" uid="uid://djq6o1o26ou0w" path="res://Assets/modelos/casamuitoengracada.glb" id="2_csek2"]
+[ext_resource type="PackedScene" uid="uid://cdlyk6k0egerw" path="res://Cenas/casa/comodo.tscn" id="3_pn5db"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_smq05"]
-vertices = PackedVector3Array(-1, 0.09999992, 1.5, 1.25, 0.09999992, 1.5, 1.75, 0.09999992, 0.5, 1.75, 0.09999992, -1.75, -1.75, 0.09999992, -1.75, -1.75, 0.09999992, 0.5)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 5), PackedInt32Array(2, 5, 4), PackedInt32Array(2, 4, 3)]
+vertices = PackedVector3Array(1.75, 0.09999995, -1.0895804, -1.75, 0.09999995, -1.0895804, -1.75, 0.09999995, 0.6604196, -1, 0.09999995, 1.6604196, 1, 0.09999995, 1.6604196, 1.75, 0.09999995, 0.6604196)
+polygons = [PackedInt32Array(5, 4, 0), PackedInt32Array(0, 4, 3), PackedInt32Array(0, 3, 2), PackedInt32Array(0, 2, 1)]
 cell_height = 0.05
 agent_height = 0.5
 agent_radius = 0.2
@@ -38,6 +38,8 @@ transform = Transform3D(1, 0, 0, 0, 0.9924966, 0.12227272, 0, -0.12227272, 0.992
 current = true
 fov = 60.0
 
+[node name="Comodo" parent="Mundo" unique_id=324555866 instance=ExtResource("3_pn5db")]
+
 [node name="Personagem" parent="Mundo" unique_id=947971233 instance=ExtResource("1_fd8wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13576078, -4.7683716e-07, 1.2171175)
 
@@ -48,7 +50,9 @@ navigation_mesh = SubResource("NavigationMesh_smq05")
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 visible = false
 use_collision = true
-polygon = PackedVector2Array(0.9428406, -1.8248901, -0.9105835, -1.7976074, -2, 0, -2, 2, 2, 2, 2, 0)
+collision_layer = 255
+collision_mask = 255
+polygon = PackedVector2Array(0.9428406, -1.8248901, -0.9105835, -1.7976074, -2, 0, -1.9076276, 1.2918369, 1.8545623, 1.3395804, 2, 0)
 depth = 0.1
 
 [node name="Node3D" type="Node3D" parent="Mundo" unique_id=1434112637]
@@ -71,8 +75,3 @@ light_specular = 0.3
 light_bake_mode = 1
 shadow_enabled = true
 area_range = 8.0
-
-[node name="Quarto" type="Node3D" parent="Mundo" unique_id=1875945313]
-
-[node name="casamuitoengracada" parent="Mundo/Quarto" unique_id=1300383137 instance=ExtResource("2_csek2")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.01595974, -0.03933129, -0.05609131)

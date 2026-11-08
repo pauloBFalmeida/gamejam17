@@ -12,6 +12,8 @@ const ray_length = 1000.0
 ## [br] Se nenhum informado, vai tentar pegar o Pai da Cena
 @export var node_3d_space: Node3D
 
+@export_flags_3d_physics var mask_deteccao = 2
+
 func _ready() -> void:
 	if not node_3d_space:
 		node_3d_space = get_tree().current_scene
@@ -50,7 +52,7 @@ func posicao_mouse_3d() -> Vector3:
 	var from = camera.project_ray_origin(mouse_pos)
 	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
 	
-	var query := PhysicsRayQueryParameters3D.create(from, to)
+	var query := PhysicsRayQueryParameters3D.create(from, to, mask_deteccao)
 	var space_state := node_3d_space.get_world_3d().direct_space_state
 	var result := space_state.intersect_ray(query)
 	

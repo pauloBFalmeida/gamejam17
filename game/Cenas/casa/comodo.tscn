@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cdlyk6k0egerw"]
+
+[ext_resource type="PackedScene" uid="uid://cgccvkj6jlkb6" path="res://Assets/modelos/salaEstar/Geladeira.glb" id="2_ff4y8"]
+[ext_resource type="Texture2D" uid="uid://dsvtm2ef1w1jy" path="res://Assets/outros/sala/ceu.png" id="2_ucr4b"]
+[ext_resource type="PackedScene" uid="uid://dnnlauneuwnxr" path="res://Assets/modelos/salaEstar/Janela.glb" id="3_i51w5"]
+[ext_resource type="PackedScene" uid="uid://dk75n4h5d3j1b" path="res://Assets/modelos/salaEstar/paredes.glb" id="4_mfk8g"]
+[ext_resource type="PackedScene" uid="uid://bhik47llitaco" path="res://Assets/modelos/salaEstar/Quadro.glb" id="5_ucr4b"]
+[ext_resource type="PackedScene" uid="uid://yigqulrjme2e" path="res://Assets/modelos/salaEstar/Sofa.glb" id="6_8fnxh"]
+[ext_resource type="PackedScene" uid="uid://cqb7oja7mb1dw" path="res://Assets/modelos/salaEstar/Tapete.glb" id="7_euxiw"]
+[ext_resource type="Texture2D" uid="uid://dts52ugoliupb" path="res://_debug/temps/white.png" id="8_ff4y8"]
+[ext_resource type="Texture2D" uid="uid://b8tw6cwph06lq" path="res://Assets/outros/sala/nois_16_16.png" id="8_i51w5"]
+[ext_resource type="PackedScene" uid="uid://bsrlbg23cre3q" path="res://Assets/modelos/salaEstar/TV.glb" id="8_qs53r"]
+[ext_resource type="Script" uid="uid://b2lpcl43mtymk" path="res://Cenas/casa/sprite_3dtv.gd" id="9_mfk8g"]
+
+[node name="Comodo" type="Node3D" unique_id=324555866]
+
+[node name="SalaEstar" type="Node3D" parent="." unique_id=1232188920]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.01595974, -0.03933129, -0.05609131)
+
+[node name="Geladeira" parent="SalaEstar" unique_id=587275481 instance=ExtResource("2_ff4y8")]
+
+[node name="JanelaPivot" type="Node3D" parent="SalaEstar" unique_id=13223371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11899805, 1.4716796, -1.480895)
+
+[node name="Sprite3DJanela" type="Sprite3D" parent="SalaEstar/JanelaPivot" unique_id=1716707754]
+transform = Transform3D(-1.5613708e-07, 0, -3.572, 0, 2.5, 0, 3.572, 0, -1.5613708e-07, 8.053394, 3.0738683, -1.2398937)
+modulate = Color(0.5294316, 0.5649079, 0.65008116, 1)
+texture = ExtResource("2_ucr4b")
+
+[node name="Janela" parent="SalaEstar/JanelaPivot" unique_id=1658512596 instance=ExtResource("3_i51w5")]
+
+[node name="paredes" parent="SalaEstar" unique_id=591336330 instance=ExtResource("4_mfk8g")]
+
+[node name="Quadro" parent="SalaEstar" unique_id=1869905873 instance=ExtResource("5_ucr4b")]
+
+[node name="Sofa2" parent="SalaEstar" unique_id=1253170941 instance=ExtResource("6_8fnxh")]
+
+[node name="Tapete2" parent="SalaEstar" unique_id=1817019462 instance=ExtResource("7_euxiw")]
+
+[node name="PivotTV" type="Node3D" parent="SalaEstar" unique_id=1195885668]
+
+[node name="Sprite3DTV" type="Sprite3D" parent="SalaEstar/PivotTV" unique_id=1024085789]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 5, 2.16968, 2.0661693, -4.8201256)
+texture = ExtResource("8_i51w5")
+vframes = 6
+frame = 5
+script = ExtResource("9_mfk8g")
+
+[node name="Sprite3DTVBlack" type="Sprite3D" parent="SalaEstar/PivotTV" unique_id=1066912750]
+transform = Transform3D(1.539279, 0, 0, 0, 1.3488642, 0, 0, 0, 5.0000005, 2.16968, 2.0661693, -5.0649376)
+modulate = Color(0.13774112, 0.15002051, 0.15702495, 1)
+texture = ExtResource("8_ff4y8")
+
+[node name="TV" parent="SalaEstar/PivotTV" unique_id=1154813906 instance=ExtResource("8_qs53r")]
