@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cdlyk6k0egerw" path="res://Cenas/casa/comodo.tscn" id="3_pn5db"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_smq05"]
-vertices = PackedVector3Array(1.6592131, 0.09999995, -1.0418369, -1.5907869, 0.09999995, -1.0418369, -1.5907869, 0.09999995, 0.70816314, -1.0907869, 0.09999995, 1.4581631, 1.1592131, 0.09999995, 1.4581631, 1.6592131, 0.09999995, 0.45816314)
+vertices = PackedVector3Array(1.6187618, 0.099999964, -0.80128056, -1.5312383, 0.099999964, -0.80128056, -1.5312383, 0.099999964, 0.24871945, -0.7812382, 0.099999964, 1.5987195, 0.8687618, 0.099999964, 1.5987195, 1.6187618, 0.099999964, 0.09871948)
 polygons = [PackedInt32Array(5, 4, 0), PackedInt32Array(0, 4, 3), PackedInt32Array(0, 3, 2), PackedInt32Array(0, 2, 1)]
+cell_size = 0.15
 cell_height = 0.05
 agent_height = 0.5
 agent_radius = 0.2
@@ -44,15 +45,15 @@ fov = 60.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13576078, -4.7683716e-07, 1.2171175)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Mundo" unique_id=52090606]
+visible = false
 navigation_mesh = SubResource("NavigationMesh_smq05")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Mundo/NavigationRegion3D" unique_id=1123447029]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-visible = false
 use_collision = true
 collision_layer = 255
 collision_mask = 255
-polygon = PackedVector2Array(0.9428406, -1.8248901, -0.9105835, -1.7976074, -1.8312383, -0.073628, -1.8407869, 1.2631907, 1.8163676, 1.2918369, 1.8450136, -0.0640794)
+polygon = PackedVector2Array(0.9428406, -1.8248901, -0.9105835, -1.7976074, -1.8312383, -0.073628, -1.8271476, 1.1012806, 1.8073049, 1.0832286, 1.8450136, -0.0640794)
 depth = 0.1
 
 [node name="Node3D" type="Node3D" parent="Mundo" unique_id=1434112637]

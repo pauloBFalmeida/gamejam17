@@ -11,11 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://b8tw6cwph06lq" path="res://Assets/outros/sala/nois_16_16.png" id="8_i51w5"]
 [ext_resource type="PackedScene" uid="uid://bsrlbg23cre3q" path="res://Assets/modelos/salaEstar/TV.glb" id="8_qs53r"]
 [ext_resource type="Script" uid="uid://b2lpcl43mtymk" path="res://Cenas/casa/sprite_3dtv.gd" id="9_mfk8g"]
+[ext_resource type="PackedScene" uid="uid://dd3n7i7qgfup3" path="res://Assets/modelos/banheiro/Banheira.glb" id="12_qs53r"]
+[ext_resource type="PackedScene" uid="uid://d11pk2udbstcv" path="res://Assets/modelos/banheiro/Paredes.glb" id="13_ua5tq"]
+[ext_resource type="PackedScene" uid="uid://c0ai0qqi2lxs" path="res://Assets/modelos/banheiro/Privada.glb" id="14_noaof"]
 
 [node name="Comodo" type="Node3D" unique_id=324555866]
 
 [node name="SalaEstar" type="Node3D" parent="." unique_id=1232188920]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.01595974, -0.03933129, -0.05609131)
+visible = false
 
 [node name="Geladeira" parent="SalaEstar" unique_id=587275481 instance=ExtResource("2_ff4y8")]
 
@@ -52,3 +56,13 @@ modulate = Color(0.13774112, 0.15002051, 0.15702495, 1)
 texture = ExtResource("8_ff4y8")
 
 [node name="TV" parent="SalaEstar/PivotTV" unique_id=1154813906 instance=ExtResource("8_qs53r")]
+
+[node name="Banheiro" type="Node3D" parent="." unique_id=1473475829]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.011, -0.021, 0)
+
+[node name="Banheira" parent="Banheiro" unique_id=1632156286 instance=ExtResource("12_qs53r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1036668)
+
+[node name="Paredes" parent="Banheiro" unique_id=221539476 instance=ExtResource("13_ua5tq")]
+
+[node name="Privada" parent="Banheiro" unique_id=2078069932 instance=ExtResource("14_noaof")]
