@@ -72,6 +72,9 @@ func get_direcao() -> Vector3:
 	var direction = local_dest.normalized()
 	return direction
 
+# Rotacao
+# -----------------------------------------------------------------------------
+
 func rotacionar(horario: bool = false) -> void:
 	if is_instance_valid(tween_rot) and tween_rot.is_running(): return
 	
@@ -90,6 +93,9 @@ func rotacionar(horario: bool = false) -> void:
 	await tween_rot.finished
 	sprite_3d.flip_h = horario
 	sprite_3d.rotation.y = 0.0
+
+# Pulinhos 
+# -----------------------------------------------------------------------------
 
 func comecar_pulinhos() -> void:
 	if tween_pulinhos:
