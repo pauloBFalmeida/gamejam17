@@ -13,11 +13,27 @@ const configName := {
 	ConfigType.VOL_MUSICA: "volume_musica",
 }
 
+# Possibilidades
+# -----------------------------------------------------------------------------
+
 const configDefault := {
-	ConfigType.SIZE_TELA: Vector2i(640,640),
+	ConfigType.SIZE_TELA: Vector2i(320,320),
 	ConfigType.VOL_MUSICA: 0.5,
 }
 
+const tamanhos_tela := [
+	Vector2i(960,960),
+	Vector2i(800,800),
+	Vector2i(640,640),
+	Vector2i(320,320),
+	Vector2i(160,160),
+]
+
+
+
+
+# Pegar do arquivo
+# -----------------------------------------------------------------------------
 var configuracoes = {}
 
 func _enter_tree() -> void:
@@ -54,3 +70,9 @@ func set_default_values() -> void:
 	for config_type in ConfigType.values():
 		var config_nome : String = configName[config_type]
 		configuracoes[config_nome] = configDefault[config_type]
+
+# Ajustes
+# -----------------------------------------------------------------------------
+
+func set_tamanho_tela(tamanho: Vector2i) -> void:
+	DisplayServer.window_set_size(tamanho)

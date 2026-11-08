@@ -48,5 +48,4 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MenuConfig" parent="Menus" unique_id=45229521 instance=ExtResource("3_shyqf")]
-visible = false
 layout_mode = 1
