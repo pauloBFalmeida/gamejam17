@@ -35,17 +35,17 @@ var personagem_fobia := Fobia.NONE :
 # TODO: TROCAR
 ## Qnt perde por minuto
 @export var taxa_perda_valor_moods : Dictionary[Mood, float] = {
-	GerenciadorMood.Mood.FELICIDADE: 	40.0 / 2,
-	GerenciadorMood.Mood.MENTAL:  		25.0 / 2,
-	GerenciadorMood.Mood.FOBIA: 		10.0 / 2,
-	GerenciadorMood.Mood.COMIDA:  		30.0 / 2,
-	GerenciadorMood.Mood.LIMPEZA:  	25.0 / 2,
+	GerenciadorMood.Mood.FELICIDADE: 	40.0,
+	GerenciadorMood.Mood.MENTAL:  		25.0,
+	GerenciadorMood.Mood.FOBIA: 		10.0,
+	GerenciadorMood.Mood.COMIDA:  		30.0,
+	GerenciadorMood.Mood.LIMPEZA:  	25.0,
 }
 #@export var taxa_perda_valor_moods : Dictionary[Mood, float] = {
-	#GerenciadorMood.Mood.FELICIDADE: 	40.0 * 2,
-	#GerenciadorMood.Mood.MENTAL:  		25.0 * 2,
-	#GerenciadorMood.Mood.FOBIA: 		10.0 * 2,
-	#GerenciadorMood.Mood.COMIDA:  		30.0 * 2,
+	#GerenciadorMood.Mood.FELICIDADE: 	40.0 * 20,
+	#GerenciadorMood.Mood.MENTAL:  		25.0 * 20,
+	#GerenciadorMood.Mood.FOBIA: 		10.0 * 20,
+	#GerenciadorMood.Mood.COMIDA:  		30.0 * 20,
 	#GerenciadorMood.Mood.LIMPEZA:  	25.0 * 2,
 #}
 
@@ -70,10 +70,13 @@ var contador_sujeira := 1
 
 ## Descrece mais rapido cada vez nessa porcent
 ## [br] multiplicador_fobia ** contador_fobia
-const multiplicador_fobia := 1.2
+const multiplicador_fobia := 1.5
 
 
 func dar(_m: Mood, _v: float) -> void:
+	tem_fobia_atencao = personagem_fobia == Fobia.Abandono
+	tem_fobia_sujeira = personagem_fobia == Fobia.Limpeza
+	
 	_valor_moods[_m] = min(_valor_moods[_m] + _v, 100.0)
 	if _m == Mood.MENTAL: contador_atencao += 1
 	elif _m == Mood.LIMPEZA: contador_sujeira += 1

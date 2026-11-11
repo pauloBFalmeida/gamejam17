@@ -61,3 +61,8 @@ personagem = NodePath("..")
 [node name="Vibe" type="Node" parent="." unique_id=1941946877 node_paths=PackedStringArray("sprite_3d_emote")]
 script = ExtResource("6_q6rpu")
 sprite_3d_emote = NodePath("../ImgPivot/Sprite3DEmote")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1386496308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2581272, 0.14695215)
+visible = false
+text = "Olhe seu desktop"

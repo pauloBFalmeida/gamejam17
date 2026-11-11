@@ -44,6 +44,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func dar_item(item: GerenciadorGrana.Item) -> void:
+	
+	
 	sprite_3d_item.texture = GerenciadorGrana.get_texture(item)
 	sprite_3d_item.show()
 	var tween := create_tween()
@@ -71,9 +73,12 @@ func dar_item(item: GerenciadorGrana.Item) -> void:
 		GerenciadorGrana.Item.Sabao:
 			GerenciadorMood.dar(GerenciadorMood.Mood.LIMPEZA, 40)
 
+@onready var label_3d: Label3D = $Label3D
 
 func morrer() -> void:
+	if not vivo: return
 	vivo = false
+	label_3d.show()
 	position = posicao_inicial
 	sprite_3d.texture = TOMBSTONE
 	sprite_3d.position.y += -0.2
